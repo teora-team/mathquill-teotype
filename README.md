@@ -1,8 +1,5 @@
 # [MathQuill](http://mathquill.com)
 
-- https://digabi.github.io/mathquill/test/demo.html
-- https://digabi.github.io/mathquill/test/basic.html
-- https://digabi.github.io/mathquill/test/visual.html
 
 by [Han](http://github.com/laughinghan), [Jeanine](http://github.com/jneen), and [Mary](http://github.com/stufflebear) (<maintainers@mathquill.com>) [<img alt="slackin.mathquill.com" src="http://slackin.mathquill.com/badge.svg" align="top">](http://slackin.mathquill.com)
 

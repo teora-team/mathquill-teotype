@@ -25,10 +25,11 @@
 
 </div>
 <script type="text/javascript" src="support/jquery-1.5.2.js"></script>
-<script type="text/javascript" src="../build/mathquill-basic.js"></script>
+<script type="text/javascript" src="../build/mathquill.js"></script>
 <script type="text/javascript">
 MQ = MathQuill.getInterface(MathQuill.getInterface.MAX);
-
+console.log($('#basic-latex'));
+console.log(document.querySelector('#basic-latex'))
 var latex = $('#basic-latex').bind('keydown keypress', function() {
   var prev = latex.val();
   setTimeout(function() {
