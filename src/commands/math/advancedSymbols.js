@@ -171,6 +171,11 @@ LatexCmds.Longleftrightarrow = bind(VanillaSymbol, '\\Longleftrightarrow ', '&xh
 LatexCmds.Updownarrow = bind(VanillaSymbol, '\\Updownarrow ', '&#8661;');
 LatexCmds.mapsto = bind(VanillaSymbol, '\\mapsto ', '&#8614;');
 LatexCmds.nearrow = bind(VanillaSymbol, '\\nearrow ', '&#8599;');
+
+LatexCmds.rightleftarrows = bind(VanillaSymbol, '\\rightleftarrows  ', '&#8644;');
+LatexCmds.leftrightarrows = bind(VanillaSymbol, '\\leftrightarrows  ', '&#8646;');
+
+
 LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8651;');
 LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8652;');
 
