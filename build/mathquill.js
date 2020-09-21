@@ -3997,6 +3997,7 @@ LatexCmds.vdash = bind(VanillaSymbol, '\\vdash ', '&#8870;');
 LatexCmds.dashv = bind(VanillaSymbol, '\\dashv ', '&#8867;');
 LatexCmds.nless = bind(VanillaSymbol, '\\nless ', '&#8814;');
 LatexCmds.ngtr = bind(VanillaSymbol, '\\ngtr ', '&#8815;');
+LatexCmds.complement = bind(VanillaSymbol, '\\complement ', '&#8705;');
 
 //arrows
 
@@ -4010,14 +4011,10 @@ LatexCmds.Longleftrightarrow = bind(VanillaSymbol, '\\Longleftrightarrow ', '&xh
 LatexCmds.Updownarrow = bind(VanillaSymbol, '\\Updownarrow ', '&#8661;');
 LatexCmds.mapsto = bind(VanillaSymbol, '\\mapsto ', '&#8614;');
 LatexCmds.nearrow = bind(VanillaSymbol, '\\nearrow ', '&#8599;');
-
 LatexCmds.rightleftarrows = bind(VanillaSymbol, '\\rightleftarrows  ', '&#8644;');
 LatexCmds.leftrightarrows = bind(VanillaSymbol, '\\leftrightarrows  ', '&#8646;');
-
-
 LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8651;');
 LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8652;');
-
 LatexCmds.hookleftarrow = bind(VanillaSymbol, '\\hookleftarrow ', '&#8617;');
 LatexCmds.hookrightarrow = bind(VanillaSymbol, '\\hookrightarrow ', '&#8618;');
 LatexCmds.searrow = bind(VanillaSymbol, '\\searrow ', '&#8600;');
@@ -4428,69 +4425,6 @@ var AboveAndBelowHarpoons = LatexCmds.xrightleftharpoons = P(Harpoons, function 
   };
   _.latex = function () {
     return this.ctrlSeq + '[' + this.ends[L].latex() + ']{' + this.ends[R].latex() + '}';
-  };
-});
-// xRightArrow - right arrow with under and over script
-var xRightArrow =
-LatexCmds.xrightarrow = P(MathCommand, function(_, super_) {
-  _.ctrlSeq = '\\xrightarrow';
-  _.textTemplate = ['xrightarrow[', '](', ')'];
-  _.htmlTemplate =
-      '<span class="mq-xarrow mq-xrightarrow">'
-    +   '<span class="mq-xarrow-inner mq-xarrow-inner-top">&0</span>'
-    +   '<span class="mq-xarrow-inner mq-xarrow-inner-middle"></span>'
-    +   '<span class="mq-xarrow-inner mq-xarrow-inner-bottom">&1</span>'
-    + '</span>'
-  ;
-  _.finalizeTree = function() {
-    this.upInto = this.ends[R].upOutOf = this.ends[L];
-    this.downInto = this.ends[L].downOutOf = this.ends[R];
-  };
-  _.parser = function() {
-    return latexMathParser.optBlock.then(function(optBlock) {
-      return latexMathParser.block.map(function(block) {
-        var xrightarrow = xRightArrow();
-        xrightarrow.blocks = [ block, optBlock ];
-        optBlock.adopt(xrightarrow, 0, 0);
-        block.adopt(xrightarrow, 0, optBlock);
-        return xrightarrow;
-      });
-    }).or(super_.parser.call(this));
-  };
-  _.latex = function() {
-    return '\\xrightarrow['+this.ends[R].latex()+']{'+this.ends[L].latex()+'}';
-  };
-});
-
-// xLeftArrow - left arrow with under and over script
-var xLeftArrow =
-LatexCmds.xleftarrow = P(MathCommand, function(_, super_) {
-  _.ctrlSeq = '\\xleftarrow';
-  _.textTemplate = ['xleftarrow[', '](', ')'];
-  _.htmlTemplate =
-      '<span class="mq-xarrow mq-xleftarrow">'
-    +   '<span class="mq-xarrow-inner mq-xarrow-inner-top">&0</span>'
-    +   '<span class="mq-xarrow-inner mq-xarrow-inner-middle"></span>'
-    +   '<span class="mq-xarrow-inner mq-xarrow-inner-bottom">&1</span>'
-    + '</span>'
-  ;
-  _.finalizeTree = function() {
-    this.upInto = this.ends[R].upOutOf = this.ends[L];
-    this.downInto = this.ends[L].downOutOf = this.ends[R];
-  };
-  _.parser = function() {
-    return latexMathParser.optBlock.then(function(optBlock) {
-      return latexMathParser.block.map(function(block) {
-        var xleftarrow = xLeftArrow();
-        xleftarrow.blocks = [ block, optBlock ];
-        optBlock.adopt(xleftarrow, 0, 0);
-        block.adopt(xleftarrow, 0, optBlock);
-        return xleftarrow;
-      });
-    }).or(super_.parser.call(this));
-  };
-  _.latex = function() {
-    return '\\xleftarrow['+this.ends[R].latex()+']{'+this.ends[L].latex()+'}';
   };
 });
 

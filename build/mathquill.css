@@ -529,39 +529,6 @@
 .mq-math-mode .mq-matrix-array td + td {
   border-left: 0.5px solid black;
 }
-.mq-math-mode .mq-xarrow {
-  display: inline-block;
-  text-align: center;
-  min-width: 20px;
-}
-.mq-math-mode .mq-xarrow-inner {
-  display: block;
-  position: relative;
-  padding: 5px 0;
-}
-.mq-math-mode .mq-xarrow-inner-middle {
-  border-bottom: 1px solid #000;
-  margin: 6px 0;
-  padding: 0;
-}
-.mq-math-mode .mq-xarrow-inner-middle:after {
-  position: absolute;
-  content: '';
-  width: 0;
-  height: 0;
-  border-style: solid;
-  top: -5px;
-}
-.mq-math-mode .mq-xrightarrow .mq-xarrow-inner-middle:after {
-  border-width: 5px 0 5px 5px;
-  border-color: transparent transparent transparent #000;
-  right: 0;
-}
-.mq-math-mode .mq-xleftarrow .mq-xarrow-inner-middle:after {
-  border-width: 5px 5px 5px 0;
-  border-color: transparent #000 transparent;
-  left: 0;
-}
 .mq-math-mode .mq-selection,
 .mq-editable-field .mq-selection,
 .mq-math-mode .mq-selection .mq-non-leaf,

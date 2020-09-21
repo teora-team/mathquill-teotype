@@ -158,6 +158,7 @@ LatexCmds.vdash = bind(VanillaSymbol, '\\vdash ', '&#8870;');
 LatexCmds.dashv = bind(VanillaSymbol, '\\dashv ', '&#8867;');
 LatexCmds.nless = bind(VanillaSymbol, '\\nless ', '&#8814;');
 LatexCmds.ngtr = bind(VanillaSymbol, '\\ngtr ', '&#8815;');
+LatexCmds.complement = bind(VanillaSymbol, '\\complement ', '&#8705;');
 
 //arrows
 
@@ -171,14 +172,10 @@ LatexCmds.Longleftrightarrow = bind(VanillaSymbol, '\\Longleftrightarrow ', '&xh
 LatexCmds.Updownarrow = bind(VanillaSymbol, '\\Updownarrow ', '&#8661;');
 LatexCmds.mapsto = bind(VanillaSymbol, '\\mapsto ', '&#8614;');
 LatexCmds.nearrow = bind(VanillaSymbol, '\\nearrow ', '&#8599;');
-
 LatexCmds.rightleftarrows = bind(VanillaSymbol, '\\rightleftarrows  ', '&#8644;');
 LatexCmds.leftrightarrows = bind(VanillaSymbol, '\\leftrightarrows  ', '&#8646;');
-
-
 LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8651;');
 LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8652;');
-
 LatexCmds.hookleftarrow = bind(VanillaSymbol, '\\hookleftarrow ', '&#8617;');
 LatexCmds.hookrightarrow = bind(VanillaSymbol, '\\hookrightarrow ', '&#8618;');
 LatexCmds.searrow = bind(VanillaSymbol, '\\searrow ', '&#8600;');
