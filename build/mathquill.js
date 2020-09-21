@@ -3999,16 +3999,20 @@ LatexCmds.nless = bind(VanillaSymbol, '\\nless ', '&#8814;');
 LatexCmds.ngtr = bind(VanillaSymbol, '\\ngtr ', '&#8815;');
 
 //arrows
-LatexCmds.longleftarrow = bind(VanillaSymbol, '\\longleftarrow ', '&#8592;');
-LatexCmds.longrightarrow = bind(VanillaSymbol, '\\longrightarrow ', '&#8594;');
-LatexCmds.Longleftarrow = bind(VanillaSymbol, '\\Longleftarrow ', '&#8656;');
-LatexCmds.Longrightarrow = bind(VanillaSymbol, '\\Longrightarrow ', '&#8658;');
-LatexCmds.longleftrightarrow = bind(VanillaSymbol, '\\longleftrightarrow ', '&#8596;');
+
+LatexCmds.longleftarrow = bind(VanillaSymbol, '\\longleftarrow ', '&xlarr;');
+LatexCmds.longrightarrow = bind(VanillaSymbol, '\\longrightarrow ', '&xrarr;');
+LatexCmds.Longleftarrow = bind(VanillaSymbol, '\\Longleftarrow ', '&xlArr;');
+LatexCmds.Longrightarrow = bind(VanillaSymbol, '\\Longrightarrow ', '&xrArr;');
+LatexCmds.longleftrightarrow = bind(VanillaSymbol, '\\longleftrightarrow ', '&xharr;');
 LatexCmds.updownarrow = bind(VanillaSymbol, '\\updownarrow ', '&#8597;');
-LatexCmds.Longleftrightarrow = bind(VanillaSymbol, '\\Longleftrightarrow ', '&#8660;');
+LatexCmds.Longleftrightarrow = bind(VanillaSymbol, '\\Longleftrightarrow ', '&xhArr;');
 LatexCmds.Updownarrow = bind(VanillaSymbol, '\\Updownarrow ', '&#8661;');
 LatexCmds.mapsto = bind(VanillaSymbol, '\\mapsto ', '&#8614;');
 LatexCmds.nearrow = bind(VanillaSymbol, '\\nearrow ', '&#8599;');
+LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8651;');
+LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8652;');
+
 LatexCmds.hookleftarrow = bind(VanillaSymbol, '\\hookleftarrow ', '&#8617;');
 LatexCmds.hookrightarrow = bind(VanillaSymbol, '\\hookrightarrow ', '&#8618;');
 LatexCmds.searrow = bind(VanillaSymbol, '\\searrow ', '&#8600;');
@@ -4042,6 +4046,14 @@ LatexCmds.parallelogram = bind(VanillaSymbol, '\\parallelogram ', '&#9649;');
 LatexCmds.square = bind(VanillaSymbol, '\\square ', '&#11036;');
 
 //variable-sized
+LatexCmds.iint = bind(VanillaSymbol, '\\iint ', '&#8748;');
+LatexCmds.iiint = bind(VanillaSymbol, '\\iiint ', '&#8749;');
+LatexCmds.intclockwise = bind(VanillaSymbol, '\\intclockwise ', '&#8753;');
+LatexCmds.intctrclockwise = bind(VanillaSymbol, '\\intctrclockwise ', '&#10769;');
+LatexCmds.varointclockwise = bind(VanillaSymbol, '\\varointclockwise ', '&#8754;');
+LatexCmds.ointctrclockwise = bind(VanillaSymbol, '\\ointctrclockwise ', '&#8755;');
+LatexCmds.oiint = bind(VanillaSymbol, '\\oiint ', '&#8751;');
+LatexCmds.oiiint = bind(VanillaSymbol, '\\oiiint ', '&#8752;');
 LatexCmds.oint = bind(VanillaSymbol, '\\oint ', '&#8750;');
 LatexCmds.bigcap = bind(VanillaSymbol, '\\bigcap ', '&#8745;');
 LatexCmds.bigcup = bind(VanillaSymbol, '\\bigcup ', '&#8746;');
@@ -5682,6 +5694,14 @@ Environments.cases = P(Matrix, function(_, super_) {
   };
 });
 
+Environments.rcases = P(Matrix, function(_, super_) {
+  _.environment = 'rcases';
+  _.parentheses = {
+    left: null,
+    right: '}'
+  };
+});
+
 Environments.array = P(Matrix, function(_, super_) {
   _.environment = 'array';
   _.parentheses = {
@@ -5689,6 +5709,7 @@ Environments.array = P(Matrix, function(_, super_) {
     right: null
   };
   _.hline = true;
+  _.vline = true;
   _.options = 'l|l';
 });
 

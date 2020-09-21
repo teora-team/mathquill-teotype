@@ -1478,6 +1478,14 @@ Environments.cases = P(Matrix, function(_, super_) {
   };
 });
 
+Environments.rcases = P(Matrix, function(_, super_) {
+  _.environment = 'rcases';
+  _.parentheses = {
+    left: null,
+    right: '}'
+  };
+});
+
 Environments.array = P(Matrix, function(_, super_) {
   _.environment = 'array';
   _.parentheses = {
@@ -1485,6 +1493,7 @@ Environments.array = P(Matrix, function(_, super_) {
     right: null
   };
   _.hline = true;
+  _.vline = true;
   _.options = 'l|l';
 });
 
