@@ -4460,7 +4460,7 @@ var AboveAndBelowHarpoons1 = LatexCmds.xleftrightharpoons = P(Harpoons1, functio
       var harpoons1 = Harpoons1()
       harpoons1.blocks = [block]
       block.adopt(harpoons1, 0, 0)
-      return harpoons
+      return harpoons1
     }));
   };
   _.latex = function () {
