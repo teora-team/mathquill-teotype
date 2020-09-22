@@ -4413,7 +4413,7 @@ var AboveAndBelowHarpoons = LatexCmds.xrightleftharpoons = P(Harpoons, function 
       return latexMathParser.block.map(function (block) {
         var harpoons = AboveAndBelowHarpoons();
         harpoons.blocks = [optBlock, block];
-        optBlock.adopt(t, 0, 0);
+        optBlock.adopt(harpoons, 0, 0);
         block.adopt(harpoons, optBlock, 0);
         return harpoons;
       });
@@ -4459,7 +4459,7 @@ var AboveAndBelowXright = LatexCmds.xrightarrow= P(Xright, function (_, super_) 
       return latexMathParser.block.map(function (block) {
         var xright = AboveAndBelowXright();
         xright.blocks = [optBlock, block];
-        optBlock.adopt(t, 0, 0);
+        optBlock.adopt(xright, 0, 0);
         block.adopt(xright, optBlock, 0);
         return xright;
       });
