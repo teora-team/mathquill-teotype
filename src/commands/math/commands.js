@@ -194,7 +194,7 @@ var AboveAndBelowHarpoons = LatexCmds.xrightleftharpoons = P(Harpoons, function 
       return latexMathParser.block.map(function (block) {
         var harpoons = AboveAndBelowHarpoons();
         harpoons.blocks = [optBlock, block];
-        optBlock.adopt(harpoons, 0, 0);
+        optBlock.adopt(t, 0, 0);
         block.adopt(harpoons, optBlock, 0);
         return harpoons;
       });
@@ -203,6 +203,52 @@ var AboveAndBelowHarpoons = LatexCmds.xrightleftharpoons = P(Harpoons, function 
       harpoons.blocks = [block]
       block.adopt(harpoons, 0, 0)
       return harpoons
+    }));
+  };
+  _.latex = function () {
+    return this.ctrlSeq + '[' + this.ends[L].latex() + ']{' + this.ends[R].latex() + '}';
+  };
+});
+
+
+var Xright = P(MathCommand, function(_, super_) {
+  _.ctrlSeq = '\\xrightarrow'
+  _.htmlTemplate =
+      '<span class="mq-xright mq-xright-rightleft mq-non-leaf">'
+        + '<span class="mq-xright-numerator">&0</span>'
+        + '<span class="mq-xright-xright">&xrarr;</span>'
+    + '</span>';
+});
+
+// Not sure if there is a better way to handle optional arguments. Nthroot and
+// Squareroot handle them in a similar manner (separate classes and templates),
+// so perhaps not?
+var AboveAndBelowXright = LatexCmds.xrightarrow= P(Xright, function (_, super_) {
+  _.ctrlSeq = '\\xrightarrow'
+  _.htmlTemplate =
+    '<span class="mq-xright mq-xright-rightleft mq-non-leaf">'
+    + '<span class="mq-xright-numerator">&1</span>'
+    + '<span class="mq-xright-xright">&xrarr;</span>'
+    + '<span class="mq-xright-denominator">&0</span>'
+    + '</span>';
+  _.parser = function () {
+    // Specify the below content with an optional argument like in chemarr, so
+    // the correct syntax is \xrightleftxright[below]{above} instead of
+    // \xrightleftxright{below}{above}.
+
+    return latexMathParser.optBlock.then(function (optBlock) {
+      return latexMathParser.block.map(function (block) {
+        var xright = AboveAndBelowXright();
+        xright.blocks = [optBlock, block];
+        optBlock.adopt(t, 0, 0);
+        block.adopt(xright, optBlock, 0);
+        return xright;
+      });
+    }).or(latexMathParser.block.map(function (block) {
+      var xright = Xright()
+      xright.blocks = [block]
+      block.adopt(xright, 0, 0)
+      return xright
     }));
   };
   _.latex = function () {

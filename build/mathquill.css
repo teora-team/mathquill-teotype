@@ -458,6 +458,27 @@
   width: 100%;
   padding: 0.1em;
 }
+.mq-math-mode .mq-xright {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xright-numerator,
+.mq-math-mode .mq-xright-denominator,
+.mq-math-mode .mq-xright-xright {
+  display: block;
+}
+.mq-math-mode .mq-xright-numerator,
+.mq-math-mode .mq-xright-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xright-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xright-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
 @supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
   .mq-math-mode .mq-overarrow:before,
   .mq-math-mode .mq-underarrow:before,

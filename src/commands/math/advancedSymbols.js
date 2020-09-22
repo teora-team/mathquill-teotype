@@ -159,6 +159,7 @@ LatexCmds.dashv = bind(VanillaSymbol, '\\dashv ', '&#8867;');
 LatexCmds.nless = bind(VanillaSymbol, '\\nless ', '&#8814;');
 LatexCmds.ngtr = bind(VanillaSymbol, '\\ngtr ', '&#8815;');
 LatexCmds.complement = bind(VanillaSymbol, '\\complement ', '&#8705;');
+LatexCmds.veebar = bind(VanillaSymbol, '\\veebar ', '&#8891;');
 
 //arrows
 
