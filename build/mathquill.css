@@ -479,6 +479,195 @@
   width: 100%;
   padding: 0.1em;
 }
+.mq-math-mode .mq-xRight {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xRight-numerator,
+.mq-math-mode .mq-xRight-denominator,
+.mq-math-mode .mq-xRight-xRight {
+  display: block;
+}
+.mq-math-mode .mq-xRight-numerator,
+.mq-math-mode .mq-xRight-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xRight-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xRight-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xleft {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xleft-numerator,
+.mq-math-mode .mq-xleft-denominator,
+.mq-math-mode .mq-xleft-xleft {
+  display: block;
+}
+.mq-math-mode .mq-xleft-numerator,
+.mq-math-mode .mq-xleft-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xleft-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xleft-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xLeft {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xLeft-numerator,
+.mq-math-mode .mq-xLeft-denominator,
+.mq-math-mode .mq-xLeft-xLeft {
+  display: block;
+}
+.mq-math-mode .mq-xLeft-numerator,
+.mq-math-mode .mq-xLeft-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xLeft-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xLeft-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xleftright {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xleftright-numerator,
+.mq-math-mode .mq-xleftright-denominator,
+.mq-math-mode .mq-xleftright-xleftright {
+  display: block;
+}
+.mq-math-mode .mq-xleftright-numerator,
+.mq-math-mode .mq-xleftright-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xleftright-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xleftright-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xhookright {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xhookright-numerator,
+.mq-math-mode .mq-xhookright-denominator,
+.mq-math-mode .mq-xhookright-xhookright {
+  display: block;
+}
+.mq-math-mode .mq-xhookright-numerator,
+.mq-math-mode .mq-xhookright-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xhookright-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xhookright-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xhookleft {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xhookleft-numerator,
+.mq-math-mode .mq-xhookleft-denominator,
+.mq-math-mode .mq-xhookleft-xhookleft {
+  display: block;
+}
+.mq-math-mode .mq-xhookleft-numerator,
+.mq-math-mode .mq-xhookleft-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xhookleft-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xhookleft-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xtofrom {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xtofrom-numerator,
+.mq-math-mode .mq-xtofrom-denominator,
+.mq-math-mode .mq-xtofrom-xtofrom {
+  display: block;
+}
+.mq-math-mode .mq-xtofrom-numerator,
+.mq-math-mode .mq-xtofrom-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xtofrom-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xtofrom-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xlongequal {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xlongequal-numerator,
+.mq-math-mode .mq-xlongequal-denominator,
+.mq-math-mode .mq-xlongequal-xlongequal {
+  display: block;
+}
+.mq-math-mode .mq-xlongequal-numerator,
+.mq-math-mode .mq-xlongequal-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xlongequal-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xlongequal-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
+.mq-math-mode .mq-xmapsto {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-xmapsto-numerator,
+.mq-math-mode .mq-xmapsto-denominator,
+.mq-math-mode .mq-xmapsto-xmapsto {
+  display: block;
+}
+.mq-math-mode .mq-xmapsto-numerator,
+.mq-math-mode .mq-xmapsto-denominator {
+  font-size: 70%;
+}
+.mq-math-mode .mq-xmapsto-numerator {
+  padding: 0 0.1em;
+}
+.mq-math-mode .mq-xmapsto-denominator {
+  float: right;
+  width: 100%;
+  padding: 0.1em;
+}
 @supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
   .mq-math-mode .mq-overarrow:before,
   .mq-math-mode .mq-underarrow:before,
