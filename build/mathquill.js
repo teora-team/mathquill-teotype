@@ -4432,9 +4432,9 @@ var AboveAndBelowHarpoons = LatexCmds.xrightleftharpoons = P(Harpoons, function 
 var Harpoons1 = P(MathCommand, function(_, super_) {
   _.ctrlSeq = '\\leftrightharpoons'
   _.htmlTemplate =
-      '<span class="mq-harpoons mq-harpoons-rightleft mq-non-leaf">'
-        + '<span class="mq-harpoons-numerator">&0</span>'
-        + '<span class="mq-harpoons-harpoons">&#x21cc;</span>'
+      '<span class="mq-harpoons1 mq-harpoons1-rightleft mq-non-leaf">'
+        + '<span class="mq-harpoons1-numerator">&0</span>'
+        + '<span class="mq-harpoons1-harpoons1">&#x21cc;</span>'
     + '</span>';
 });
 
