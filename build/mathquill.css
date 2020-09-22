@@ -120,7 +120,7 @@
   box-sizing: border-box;
 }
 .mq-math-mode .mq-empty {
-  background: #ccc;
+  background: rgba(204, 204, 204, 0.442);
 }
 .mq-math-mode .mq-empty.mq-root-block {
   background: transparent;
