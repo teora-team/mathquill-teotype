@@ -224,7 +224,7 @@ var AboveAndBelowHarpoons1 = LatexCmds.xleftrightharpoons = P(Harpoons1, functio
   _.htmlTemplate =
     '<span class="mq-harpoons1 mq-harpoons1-rightleft mq-non-leaf">'
     + '<span class="mq-harpoons1-numerator">&1</span>'
-    + '<span class="mq-harpoons1-harpoons1">&#8651;</span>'
+    + '<span class="mq-harpoons1-harpoons1">&#x21cc;</span>'
     + '<span class="mq-harpoons1-denominator">&0</span>'
     + '</span>';
   _.parser = function () {
