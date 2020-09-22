@@ -4441,25 +4441,25 @@ var Harpoons1 = P(MathCommand, function(_, super_) {
 var AboveAndBelowHarpoons1 = LatexCmds.xleftrightharpoons = P(Harpoons1, function (_, super_) {
   _.ctrlSeq = '\\leftrightharpoons'
   _.htmlTemplate =
-    '<span class="mq-harpoons mq-harpoons-rightleft mq-non-leaf">'
-    + '<span class="mq-harpoons-numerator">&1</span>'
-    + '<span class="mq-harpoons-harpoons">&#8651;</span>'
-    + '<span class="mq-harpoons-denominator">&0</span>'
+    '<span class="mq-harpoons1 mq-harpoons1-rightleft mq-non-leaf">'
+    + '<span class="mq-harpoons1-numerator">&1</span>'
+    + '<span class="mq-harpoons1-harpoons1">&#8651;</span>'
+    + '<span class="mq-harpoons1-denominator">&0</span>'
     + '</span>';
   _.parser = function () {
 
     return latexMathParser.optBlock.then(function (optBlock) {
       return latexMathParser.block.map(function (block) {
-        var harpoons = AboveAndBelowHarpoons1();
-        harpoons.blocks = [optBlock, block];
-        optBlock.adopt(harpoons, 0, 0);
-        block.adopt(harpoons, optBlock, 0);
-        return harpoons;
+        var harpoons1 = AboveAndBelowHarpoons1();
+        harpoons1.blocks = [optBlock, block];
+        optBlock.adopt(harpoons1, 0, 0);
+        block.adopt(harpoons1, optBlock, 0);
+        return harpoons1;
       });
     }).or(latexMathParser.block.map(function (block) {
-      var harpoons = Harpoons1()
-      harpoons.blocks = [block]
-      block.adopt(harpoons, 0, 0)
+      var harpoons1 = Harpoons1()
+      harpoons1.blocks = [block]
+      block.adopt(harpoons1, 0, 0)
       return harpoons
     }));
   };
@@ -4681,6 +4681,45 @@ var AboveAndBelowXleftright = LatexCmds.xleftrightarrow= P(Xleftright, function 
       xleftright.blocks = [block]
       block.adopt(xleftright, 0, 0)
       return xleftright
+    }));
+  };
+  _.latex = function () {
+    return this.ctrlSeq + '[' + this.ends[L].latex() + ']{' + this.ends[R].latex() + '}';
+  };
+});
+
+var XLeftright = P(MathCommand, function(_, super_) {
+  _.ctrlSeq = '\\xLeftrightarrow'
+  _.htmlTemplate =
+      '<span class="mq-xLeftright mq-xLeftright-Leftright mq-non-leaf">'
+        + '<span class="mq-xLeftright-numerator">&0</span>'
+        + '<span class="mq-xLeftright-xLeftright">&xhArr;</span>'
+    + '</span>';
+});
+
+var AboveAndBelowXLeftright = LatexCmds.xLeftrightarrow= P(XLeftright, function (_, super_) {
+  _.ctrlSeq = '\\xLeftrightarrow'
+  _.htmlTemplate =
+    '<span class="mq-xLeftright mq-xLeftright-Leftright mq-non-leaf">'
+    + '<span class="mq-xLeftright-numerator">&1</span>'
+    + '<span class="mq-xLeftright-xLeftright">&xhArr;</span>'
+    + '<span class="mq-xLeftright-denominator">&0</span>'
+    + '</span>';
+  _.parser = function () {
+
+    return latexMathParser.optBlock.then(function (optBlock) {
+      return latexMathParser.block.map(function (block) {
+        var xLeftright = AboveAndBelowXLeftright();
+        xLeftright.blocks = [optBlock, block];
+        optBlock.adopt(xLeftright, 0, 0);
+        block.adopt(xLeftright, optBlock, 0);
+        return xLeftright;
+      });
+    }).or(latexMathParser.block.map(function (block) {
+      var xLeftright = XLeftright()
+      xLeftright.blocks = [block]
+      block.adopt(xLeftright, 0, 0)
+      return xLeftright
     }));
   };
   _.latex = function () {
