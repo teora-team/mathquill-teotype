@@ -4429,45 +4429,46 @@ var AboveAndBelowHarpoons = LatexCmds.xrightleftharpoons = P(Harpoons, function 
   };
 });
 
-var Harpoons1 = P(MathCommand, function(_, super_) {
-  _.ctrlSeq = '\\leftrightharpoons'
+
+var Xleftrightharpoons = P(MathCommand, function(_, super_) {
+  _.ctrlSeq = '\\xleftrightharpoons'
   _.htmlTemplate =
-      '<span class="mq-harpoons1 mq-harpoons1-rightleft mq-non-leaf">'
-        + '<span class="mq-harpoons1-numerator">&0</span>'
-        + '<span class="mq-harpoons1-harpoons1">&#x21cc;</span>'
+      '<span class="mq-xleftrightharpoons mq-xleftrightharpoons-leftrightharpoonsleft mq-non-leaf">'
+        + '<span class="mq-xleftrightharpoons-numerator">&0</span>'
+        + '<span class="mq-xleftrightharpoons-xleftrightharpoons">&#8651;</span>'
     + '</span>';
 });
 
-var AboveAndBelowHarpoons1 = LatexCmds.xleftrightharpoons = P(Harpoons1, function (_, super_) {
-  _.ctrlSeq = '\\leftrightharpoons'
+var AboveAndBelowXleftrightharpoons = LatexCmds.xleftrightharpoons= P(Xleftrightharpoons, function (_, super_) {
+  _.ctrlSeq = '\\xleftrightharpoons'
   _.htmlTemplate =
-    '<span class="mq-harpoons1 mq-harpoons1-rightleft mq-non-leaf">'
-    + '<span class="mq-harpoons1-numerator">&1</span>'
-    + '<span class="mq-harpoons1-harpoons1">&#x21cc;</span>'
-    + '<span class="mq-harpoons1-denominator">&0</span>'
+    '<span class="mq-xleftrightharpoons mq-xleftrightharpoons-leftrightharpoonsleft mq-non-leaf">'
+    + '<span class="mq-xleftrightharpoons-numerator">&1</span>'
+    + '<span class="mq-xleftrightharpoons-xleftrightharpoons">&#8651;</span>'
+    + '<span class="mq-xleftrightharpoons-denominator">&0</span>'
     + '</span>';
   _.parser = function () {
 
+
     return latexMathParser.optBlock.then(function (optBlock) {
       return latexMathParser.block.map(function (block) {
-        var harpoons1 = AboveAndBelowHarpoons1();
-        harpoons1.blocks = [optBlock, block];
-        optBlock.adopt(harpoons1, 0, 0);
-        block.adopt(harpoons1, optBlock, 0);
-        return harpoons1;
+        var xleftrightharpoons = AboveAndBelowXleftrightharpoons();
+        xleftrightharpoons.blocks = [optBlock, block];
+        optBlock.adopt(xleftrightharpoons, 0, 0);
+        block.adopt(xleftrightharpoons, optBlock, 0);
+        return xleftrightharpoons;
       });
     }).or(latexMathParser.block.map(function (block) {
-      var harpoons1 = Harpoons1()
-      harpoons1.blocks = [block]
-      block.adopt(harpoons1, 0, 0)
-      return harpoons1
+      var xleftrightharpoons = Xleftrightharpoons()
+      xleftrightharpoons.blocks = [block]
+      block.adopt(xleftrightharpoons, 0, 0)
+      return xleftrightharpoons
     }));
   };
   _.latex = function () {
     return this.ctrlSeq + '[' + this.ends[L].latex() + ']{' + this.ends[R].latex() + '}';
   };
 });
-
 
 var Xright = P(MathCommand, function(_, super_) {
   _.ctrlSeq = '\\xrightarrow'
