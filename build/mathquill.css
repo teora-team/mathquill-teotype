@@ -200,13 +200,92 @@
 .mq-math-mode .mq-mathbb .mq-original {
   display: none;
 }
+.mq-math-mode .mq-boxed {
+  border: 2px solid black;
+  margin: 1px;
+}
+.mq-math-mode .mq-sout {
+  position: relative;
+  display: inline-block;
+}
+.mq-math-mode .mq-sout::before,
+.mq-math-mode .mq-sout::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 40%;
+}
+.mq-math-mode .mq-sout::before {
+  border-bottom: 1px solid black;
+}
+.mq-math-mode .mq-cancel {
+  display: inline-block;
+  position: relative;
+}
+.mq-math-mode .mq-cancel::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+  -webkit-transform: rotate(-5deg);
+  -moz-transform: rotate(-5deg);
+  -ms-transform: rotate(-5deg);
+  -o-transform: rotate(-5deg);
+  transform: rotate(-5deg);
+}
+.mq-math-mode .mq-bcancel {
+  display: inline-block;
+  position: relative;
+}
+.mq-math-mode .mq-bcancel::before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 1px solid;
+  border-color: inherit;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+.mq-math-mode .mq-xcancel {
+  position: relative;
+  display: inline-block;
+}
+.mq-math-mode .mq-xcancel::before,
+.mq-math-mode .mq-xcancel::after {
+  content: '';
+  width: 100%;
+  position: absolute;
+  right: 0;
+  top: 50%;
+}
+.mq-math-mode .mq-xcancel::before {
+  border-bottom: 1px solid black;
+  -webkit-transform: skewY(-10deg);
+  transform: skewY(-10deg);
+}
+.mq-math-mode .mq-xcancel::after {
+  border-bottom: 1px solid black;
+  -webkit-transform: skewY(10deg);
+  transform: skewY(10deg);
+}
 .mq-math-mode .mq-overline,
-.mq-math-mode .mq-overarrow {
+.mq-math-mode .mq-overarrow,
+.mq-math-mode .mq-overlinesegment {
   border-top: 1px solid black;
   margin-top: 1px;
 }
 .mq-math-mode .mq-underline,
-.mq-math-mode .mq-underarrow {
+.mq-math-mode .mq-underarrow,
+.mq-math-mode .mq-underlinesegment {
   border-bottom: 1px solid black;
   margin-bottom: 1px;
 }
@@ -440,9 +519,49 @@
   content: 'c';
   visibility: hidden;
 }
+.mq-math-mode .mq-overlinesegment,
+.mq-math-mode .mq-underlinesegment {
+  text-align: center;
+  position: relative;
+}
+.mq-math-mode .mq-overlinesegment:before,
+.mq-math-mode .mq-underlinesegment:before,
+.mq-math-mode .mq-overlinesegment:after,
+.mq-math-mode .mq-underlinesegment:after {
+  position: absolute;
+  display: block;
+  line-height: 1px;
+  font-size: 0.8em;
+  min-width: 0.8em;
+}
+.mq-math-mode .mq-overlinesegment.mq-arrow-leftright:before,
+.mq-math-mode .mq-underlinesegment.mq-arrow-leftright:before {
+  content: '|';
+  text-align: left;
+  left: -1px;
+}
+.mq-math-mode .mq-overlinesegment.mq-arrow-leftright:after,
+.mq-math-mode .mq-underlinesegment.mq-arrow-leftright:after {
+  content: '|';
+  text-align: right;
+  right: -1px;
+}
+.mq-math-mode .mq-overlinesegment.mq-empty .mq-inner:before,
+.mq-math-mode .mq-underlinesegment.mq-empty .mq-inner:before {
+  content: 'c';
+  visibility: hidden;
+}
+.mq-math-mode .mq-overlinesegment:before,
+.mq-math-mode .mq-overlinesegment:after {
+  top: -1px;
+}
 .mq-math-mode .mq-overarrow:before,
 .mq-math-mode .mq-overarrow:after {
   top: -1px;
+}
+.mq-math-mode .mq-underlinesegment:before,
+.mq-math-mode .mq-underlinesegment:after {
+  bottom: -1px;
 }
 .mq-math-mode .mq-underarrow:before,
 .mq-math-mode .mq-underarrow:after {

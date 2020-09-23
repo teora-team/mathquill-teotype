@@ -4048,26 +4048,6 @@ LatexCmds.spadesuit = bind(VanillaSymbol, '\\spadesuit ', '&#9824;');
 LatexCmds.parallelogram = bind(VanillaSymbol, '\\parallelogram ', '&#9649;');
 LatexCmds.square = bind(VanillaSymbol, '\\square ', '&#11036;');
 
-//variable-sized
-// LatexCmds.iint = bind(VanillaSymbol, '\\iint ', '&#8748;');
-// LatexCmds.iiint = bind(VanillaSymbol, '\\iiint ', '&#8749;');
-// LatexCmds.intclockwise = bind(VanillaSymbol, '\\intclockwise ', '&#8753;');
-// LatexCmds.intctrclockwise = bind(VanillaSymbol, '\\intctrclockwise ', '&#10769;');
-// LatexCmds.varointclockwise = bind(VanillaSymbol, '\\varointclockwise ', '&#8754;');
-// LatexCmds.ointctrclockwise = bind(VanillaSymbol, '\\ointctrclockwise ', '&#8755;');
-// LatexCmds.oiint = bind(VanillaSymbol, '\\oiint ', '&#8751;');
-// LatexCmds.oiiint = bind(VanillaSymbol, '\\oiiint ', '&#8752;');
-// LatexCmds.oint = bind(VanillaSymbol, '\\oint ', '&#8750;');
-// LatexCmds.bigcap = bind(VanillaSymbol, '\\bigcap ', '&#8745;');
-// LatexCmds.bigcup = bind(VanillaSymbol, '\\bigcup ', '&#8746;');
-// LatexCmds.bigsqcup = bind(VanillaSymbol, '\\bigsqcup ', '&#8852;');
-// LatexCmds.bigvee = bind(VanillaSymbol, '\\bigvee ', '&#8744;');
-// LatexCmds.bigwedge = bind(VanillaSymbol, '\\bigwedge ', '&#8743;');
-// LatexCmds.bigodot = bind(VanillaSymbol, '\\bigodot ', '&#8857;');
-// LatexCmds.bigotimes = bind(VanillaSymbol, '\\bigotimes ', '&#8855;');
-// LatexCmds.bigoplus = bind(VanillaSymbol, '\\bigoplus ', '&#8853;');
-// LatexCmds.biguplus = bind(VanillaSymbol, '\\biguplus ', '&#8846;');
-
 //delimiters
 LatexCmds.lfloor = bind(VanillaSymbol, '\\lfloor ', '&#8970;');
 LatexCmds.rfloor = bind(VanillaSymbol, '\\rfloor ', '&#8971;');
@@ -4366,6 +4346,11 @@ LatexCmds.mathbb = P(MathCommand, function(_, super_) {
 //text-decoration
 LatexCmds.underline = bind(Style, '\\underline', 'span', 'class="mq-non-leaf mq-underline"');
 LatexCmds.overline = LatexCmds.bar = bind(Style, '\\overline', 'span', 'class="mq-non-leaf mq-overline"');
+LatexCmds.sout = LatexCmds.bar = bind(Style, '\\sout', 'span', 'class="mq-non-leaf mq-sout"');
+LatexCmds.cancel = LatexCmds.bar = bind(Style, '\\cancel', 'span', 'class="mq-non-leaf mq-cancel"');
+LatexCmds.bcancel = LatexCmds.bar = bind(Style, '\\bcancel', 'span', 'class="mq-non-leaf mq-bcancel"');
+LatexCmds.xcancel = LatexCmds.bar = bind(Style, '\\xcancel', 'span', 'class="mq-non-leaf mq-xcancel"');
+LatexCmds.boxed = LatexCmds.bar = bind(Style, '\\boxed', 'span', 'class="mq-non-leaf mq-boxed"');
 
 var OverUnderArrow = P(MathCommand, function(_, super_) {
   _.init = function(ctrlSeq, attrs) {
@@ -4380,9 +4365,12 @@ var OverUnderArrow = P(MathCommand, function(_, super_) {
 LatexCmds.overrightarrow = bind(OverUnderArrow, '\\overrightarrow', 'class="mq-non-leaf mq-overarrow mq-arrow-right"');
 LatexCmds.overleftarrow = bind(OverUnderArrow, '\\overleftarrow', 'class="mq-non-leaf mq-overarrow mq-arrow-left"');
 LatexCmds.overleftrightarrow = bind(OverUnderArrow, '\\overleftrightarrow', 'class="mq-non-leaf mq-overarrow mq-arrow-leftright"');
+LatexCmds.overlinesegment = bind(OverUnderArrow, '\\overlinesegment', 'class="mq-non-leaf mq-overlinesegment mq-arrow-leftright"');
 LatexCmds.underrightarrow = bind(OverUnderArrow, '\\underrightarrow', 'class="mq-non-leaf mq-underarrow mq-arrow-right"');
 LatexCmds.underleftarrow = bind(OverUnderArrow, '\\underleftarrow', 'class="mq-non-leaf mq-underarrow mq-arrow-left"');
 LatexCmds.underleftrightarrow = bind(OverUnderArrow, '\\underleftrightarrow', 'class="mq-non-leaf mq-underarrow mq-arrow-leftright"');
+LatexCmds.underlinesegment = bind(OverUnderArrow, '\\underlinesegment', 'class="mq-non-leaf mq-underlinesegment mq-arrow-leftright"');
+
 
 var Harpoons = P(MathCommand, function(_, super_) {
   _.ctrlSeq = '\\xrightleftharpoons'

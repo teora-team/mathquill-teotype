@@ -147,6 +147,11 @@ LatexCmds.mathbb = P(MathCommand, function(_, super_) {
 //text-decoration
 LatexCmds.underline = bind(Style, '\\underline', 'span', 'class="mq-non-leaf mq-underline"');
 LatexCmds.overline = LatexCmds.bar = bind(Style, '\\overline', 'span', 'class="mq-non-leaf mq-overline"');
+LatexCmds.sout = LatexCmds.bar = bind(Style, '\\sout', 'span', 'class="mq-non-leaf mq-sout"');
+LatexCmds.cancel = LatexCmds.bar = bind(Style, '\\cancel', 'span', 'class="mq-non-leaf mq-cancel"');
+LatexCmds.bcancel = LatexCmds.bar = bind(Style, '\\bcancel', 'span', 'class="mq-non-leaf mq-bcancel"');
+LatexCmds.xcancel = LatexCmds.bar = bind(Style, '\\xcancel', 'span', 'class="mq-non-leaf mq-xcancel"');
+LatexCmds.boxed = LatexCmds.bar = bind(Style, '\\boxed', 'span', 'class="mq-non-leaf mq-boxed"');
 
 var OverUnderArrow = P(MathCommand, function(_, super_) {
   _.init = function(ctrlSeq, attrs) {
@@ -161,9 +166,12 @@ var OverUnderArrow = P(MathCommand, function(_, super_) {
 LatexCmds.overrightarrow = bind(OverUnderArrow, '\\overrightarrow', 'class="mq-non-leaf mq-overarrow mq-arrow-right"');
 LatexCmds.overleftarrow = bind(OverUnderArrow, '\\overleftarrow', 'class="mq-non-leaf mq-overarrow mq-arrow-left"');
 LatexCmds.overleftrightarrow = bind(OverUnderArrow, '\\overleftrightarrow', 'class="mq-non-leaf mq-overarrow mq-arrow-leftright"');
+LatexCmds.overlinesegment = bind(OverUnderArrow, '\\overlinesegment', 'class="mq-non-leaf mq-overlinesegment mq-arrow-leftright"');
 LatexCmds.underrightarrow = bind(OverUnderArrow, '\\underrightarrow', 'class="mq-non-leaf mq-underarrow mq-arrow-right"');
 LatexCmds.underleftarrow = bind(OverUnderArrow, '\\underleftarrow', 'class="mq-non-leaf mq-underarrow mq-arrow-left"');
 LatexCmds.underleftrightarrow = bind(OverUnderArrow, '\\underleftrightarrow', 'class="mq-non-leaf mq-underarrow mq-arrow-leftright"');
+LatexCmds.underlinesegment = bind(OverUnderArrow, '\\underlinesegment', 'class="mq-non-leaf mq-underlinesegment mq-arrow-leftright"');
+
 
 var Harpoons = P(MathCommand, function(_, super_) {
   _.ctrlSeq = '\\xrightleftharpoons'
