@@ -716,7 +716,6 @@ var AboveAndBelowXmapsto = LatexCmds.xmapsto= P(Xmapsto, function (_, super_) {
 LatexCmds['overgroup'] = LatexCmds.overarc = bind(Style, '\\overgroup', 'span', 'class="mq-non-leaf mq-overarc"');
 // TODO overbrace is totally different from what is already done, so i'll make something really practical -- maybe the using operators parsing is some direction to make it work
 LatexCmds['overbrace'] = LatexCmds.overarc = bind(Style, '\\overbrace', 'span', 'class="mq-non-leaf mq-overarc"');
-
 // TODO undergroup is different to underarc, actually I don't know if this command exists, maybe it's correct form is \arc{}
 LatexCmds['undergroup'] = LatexCmds.underarc = bind(Style, '\\undergroup', 'span', 'class="mq-non-leaf mq-underarc"');
 // TODO overbrace is totally different from what is already done, so i'll make something really practical

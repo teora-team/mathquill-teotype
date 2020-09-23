@@ -3655,6 +3655,21 @@ LatexCmds.Upsih = //'cos it makes sense to me
   bind(Symbol,'\\Upsilon ','<var style="font-family: serif">&upsih;</var>'); //Symbola's 'upsilon with a hook' is a capital Y without hooks :(
 
 //other symbols with the same LaTeX command and HTML character entity reference
+LatexCmds.Alpha = 
+LatexCmds.Beta = 
+LatexCmds.Epsilon = 
+LatexCmds.Zeta = 
+LatexCmds.Eta = 
+LatexCmds.Iota = 
+LatexCmds.Kappa = 
+LatexCmds.Mu = 
+LatexCmds.Nu = 
+LatexCmds.Omicron = 
+LatexCmds.Rho = 
+LatexCmds.Tau = 
+LatexCmds.Chi = 
+LatexCmds.varGamma = 
+
 LatexCmds.Gamma =
 LatexCmds.Delta =
 LatexCmds.Theta =
@@ -4915,7 +4930,6 @@ var AboveAndBelowXmapsto = LatexCmds.xmapsto= P(Xmapsto, function (_, super_) {
 LatexCmds['overgroup'] = LatexCmds.overarc = bind(Style, '\\overgroup', 'span', 'class="mq-non-leaf mq-overarc"');
 // TODO overbrace is totally different from what is already done, so i'll make something really practical -- maybe the using operators parsing is some direction to make it work
 LatexCmds['overbrace'] = LatexCmds.overarc = bind(Style, '\\overbrace', 'span', 'class="mq-non-leaf mq-overarc"');
-
 // TODO undergroup is different to underarc, actually I don't know if this command exists, maybe it's correct form is \arc{}
 LatexCmds['undergroup'] = LatexCmds.underarc = bind(Style, '\\undergroup', 'span', 'class="mq-non-leaf mq-underarc"');
 // TODO overbrace is totally different from what is already done, so i'll make something really practical
