@@ -704,8 +704,12 @@ var AboveAndBelowXmapsto = LatexCmds.xmapsto= P(Xmapsto, function (_, super_) {
   };
 });
 
+// TODO overgroup and overarc are actually different
+LatexCmds['overgroup'] = LatexCmds.overarc = bind(Style, '\\overgroup', 'span', 'class="mq-non-leaf mq-overarc"');
 
-LatexCmds.overarc = bind(Style, '\\overarc', 'span', 'class="mq-non-leaf mq-overarc"');
+// TODO undergroup is different to underarc, actually I don't know if this command exists, maybe it's correct form is \arc{}
+LatexCmds['undergroup'] = LatexCmds.underarc = bind(Style, '\\undergroup', 'span', 'class="mq-non-leaf mq-underarc"');
+
 LatexCmds.dot = P(MathCommand, function(_, super_) {
     _.init = function() {
         super_.init.call(this, '\\dot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
