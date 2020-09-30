@@ -508,7 +508,7 @@ var Inequality = P(BinaryOperator, function(_, super_) {
     this.strict = strict;
     var strictness = (strict ? 'Strict' : '');
     super_.init.call(this, data['ctrlSeq'+strictness], data['html'+strictness],
-                     data['text'+strictness]);
+    data['text'+strictness]);
   };
   _.swap = function(strict) {
     this.strict = strict;

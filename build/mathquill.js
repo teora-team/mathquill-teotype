@@ -3668,8 +3668,6 @@ LatexCmds.Omicron =
 LatexCmds.Rho = 
 LatexCmds.Tau = 
 LatexCmds.Chi = 
-LatexCmds.varGamma = 
-
 LatexCmds.Gamma =
 LatexCmds.Delta =
 LatexCmds.Theta =
@@ -3802,7 +3800,7 @@ var Inequality = P(BinaryOperator, function(_, super_) {
     this.strict = strict;
     var strictness = (strict ? 'Strict' : '');
     super_.init.call(this, data['ctrlSeq'+strictness], data['html'+strictness],
-                     data['text'+strictness]);
+    data['text'+strictness]);
   };
   _.swap = function(strict) {
     this.strict = strict;
@@ -4029,8 +4027,8 @@ LatexCmds.mapsto = bind(VanillaSymbol, '\\mapsto ', '&#8614;');
 LatexCmds.nearrow = bind(VanillaSymbol, '\\nearrow ', '&#8599;');
 LatexCmds.rightleftarrows = bind(VanillaSymbol, '\\rightleftarrows  ', '&#8644;');
 LatexCmds.leftrightarrows = bind(VanillaSymbol, '\\leftrightarrows  ', '&#8646;');
-LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8651;');
-LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8652;');
+LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8652;');
+LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8651;');
 LatexCmds.hookleftarrow = bind(VanillaSymbol, '\\hookleftarrow ', '&#8617;');
 LatexCmds.hookrightarrow = bind(VanillaSymbol, '\\hookrightarrow ', '&#8618;');
 LatexCmds.searrow = bind(VanillaSymbol, '\\searrow ', '&#8600;');
@@ -4195,8 +4193,9 @@ LatexCmds.and = LatexCmds.land = LatexCmds.wedge =
 
 LatexCmds.or = LatexCmds.lor = LatexCmds.vee = bind(BinaryOperator,'\\vee ','&or;');
 
-LatexCmds.o = LatexCmds.O =
 LatexCmds.empty = LatexCmds.emptyset =
+bind(BinaryOperator,'\\empty ','&#x2205;');
+LatexCmds.o = LatexCmds.O =
 LatexCmds.oslash = LatexCmds.Oslash =
 LatexCmds.nothing = LatexCmds.varnothing =
   bind(BinaryOperator,'\\varnothing ','&empty;');
@@ -4938,7 +4937,25 @@ LatexCmds['underbrace'] = LatexCmds.overarc = bind(Style, '\\underbrace', 'span'
 LatexCmds.dot = P(MathCommand, function(_, super_) {
     _.init = function() {
         super_.init.call(this, '\\dot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
-            + '<span class="mq-dot-recurring">&#x2d9;</span>'
+            + '<span class="mq-dot-recurring">&#775;</span>'
+            + '<span class="mq-empty-box">&0</span>'
+            + '</span></span>'
+        );
+    };
+});
+LatexCmds.ddot = P(MathCommand, function(_, super_) {
+    _.init = function() {
+        super_.init.call(this, '\\ddot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
+            + '<span class="mq-dot-recurring">&#776;</span>'
+            + '<span class="mq-empty-box">&0</span>'
+            + '</span></span>'
+        );
+    };
+});
+LatexCmds.dddot = P(MathCommand, function(_, super_) {
+    _.init = function() {
+        super_.init.call(this, '\\dddot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
+            + '<span class="mq-dot-recurring"> &#8411;</span>'
             + '<span class="mq-empty-box">&0</span>'
             + '</span></span>'
         );
@@ -6072,14 +6089,29 @@ Environments.matrix = P(Environment, function(_, super_) {
 
     return super_.html.call(this);
   };
+  
   // Create default 4-cell matrix
   _.createBlocks = function() {
-    this.blocks = [
-      MatrixCell(0, this),
-      MatrixCell(0, this),
-      MatrixCell(1, this),
-      MatrixCell(1, this)
-    ];
+    console.log(this.ctrlSeq);
+    if(this.ctrlSeq == 'matrix'||this.ctrlSeq=='pmatrix'|| this.ctrlSeq == 'bmatrix'|| this.ctrlSeq == 'Bmatrix'|| this.ctrlSeq == 'vmatrix'|| this.ctrlSeq == 'Vmatrix'){
+      this.blocks = [
+        MatrixCell(0, this),
+        MatrixCell(0, this),
+        MatrixCell(1, this),
+        MatrixCell(1, this)
+      ];
+    }
+    else if (this.ctrlSeq == 'gathered'|| this.ctrlSeq == 'aligned'){
+      this.blocks = [
+        MatrixCell(0, this),
+      ];
+    }
+    else if (this.ctrlSeq == 'cases'|| this.ctrlSeq == 'rcases'){
+      this.blocks = [
+        MatrixCell(0, this),
+        MatrixCell(1, this),
+      ];
+    }
   };
   _.parser = function() {
     var self = this;
@@ -6349,6 +6381,22 @@ Environments.matrix = P(Environment, function(_, super_) {
   };
 });
 
+
+
+Environments.aligned = P(Matrix, function(_, super_) {
+  _.environment = 'aligned';
+  _.parentheses = {
+    left: null,
+    right: null
+  };
+});
+Environments.gathered = P(Matrix, function(_, super_) {
+  _.environment = 'gathered';
+  _.parentheses = {
+    left: null,
+    right: null
+  };
+});
 Environments.pmatrix = P(Matrix, function(_, super_) {
   _.environment = 'pmatrix';
   _.parentheses = {

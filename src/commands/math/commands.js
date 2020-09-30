@@ -724,7 +724,25 @@ LatexCmds['underbrace'] = LatexCmds.overarc = bind(Style, '\\underbrace', 'span'
 LatexCmds.dot = P(MathCommand, function(_, super_) {
     _.init = function() {
         super_.init.call(this, '\\dot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
-            + '<span class="mq-dot-recurring">&#x2d9;</span>'
+            + '<span class="mq-dot-recurring">&#775;</span>'
+            + '<span class="mq-empty-box">&0</span>'
+            + '</span></span>'
+        );
+    };
+});
+LatexCmds.ddot = P(MathCommand, function(_, super_) {
+    _.init = function() {
+        super_.init.call(this, '\\ddot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
+            + '<span class="mq-dot-recurring">&#776;</span>'
+            + '<span class="mq-empty-box">&0</span>'
+            + '</span></span>'
+        );
+    };
+});
+LatexCmds.dddot = P(MathCommand, function(_, super_) {
+    _.init = function() {
+        super_.init.call(this, '\\dddot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
+            + '<span class="mq-dot-recurring"> &#8411;</span>'
             + '<span class="mq-empty-box">&0</span>'
             + '</span></span>'
         );
@@ -1858,14 +1876,29 @@ Environments.matrix = P(Environment, function(_, super_) {
 
     return super_.html.call(this);
   };
+  
   // Create default 4-cell matrix
   _.createBlocks = function() {
-    this.blocks = [
-      MatrixCell(0, this),
-      MatrixCell(0, this),
-      MatrixCell(1, this),
-      MatrixCell(1, this)
-    ];
+    console.log(this.ctrlSeq);
+    if(this.ctrlSeq == 'matrix'||this.ctrlSeq=='pmatrix'|| this.ctrlSeq == 'bmatrix'|| this.ctrlSeq == 'Bmatrix'|| this.ctrlSeq == 'vmatrix'|| this.ctrlSeq == 'Vmatrix'){
+      this.blocks = [
+        MatrixCell(0, this),
+        MatrixCell(0, this),
+        MatrixCell(1, this),
+        MatrixCell(1, this)
+      ];
+    }
+    else if (this.ctrlSeq == 'gathered'|| this.ctrlSeq == 'aligned'){
+      this.blocks = [
+        MatrixCell(0, this),
+      ];
+    }
+    else if (this.ctrlSeq == 'cases'|| this.ctrlSeq == 'rcases'){
+      this.blocks = [
+        MatrixCell(0, this),
+        MatrixCell(1, this),
+      ];
+    }
   };
   _.parser = function() {
     var self = this;
@@ -2135,6 +2168,22 @@ Environments.matrix = P(Environment, function(_, super_) {
   };
 });
 
+
+
+Environments.aligned = P(Matrix, function(_, super_) {
+  _.environment = 'aligned';
+  _.parentheses = {
+    left: null,
+    right: null
+  };
+});
+Environments.gathered = P(Matrix, function(_, super_) {
+  _.environment = 'gathered';
+  _.parentheses = {
+    left: null,
+    right: null
+  };
+});
 Environments.pmatrix = P(Matrix, function(_, super_) {
   _.environment = 'pmatrix';
   _.parentheses = {

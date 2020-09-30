@@ -175,8 +175,8 @@ LatexCmds.mapsto = bind(VanillaSymbol, '\\mapsto ', '&#8614;');
 LatexCmds.nearrow = bind(VanillaSymbol, '\\nearrow ', '&#8599;');
 LatexCmds.rightleftarrows = bind(VanillaSymbol, '\\rightleftarrows  ', '&#8644;');
 LatexCmds.leftrightarrows = bind(VanillaSymbol, '\\leftrightarrows  ', '&#8646;');
-LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8651;');
-LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8652;');
+LatexCmds.rightleftharpoons = bind(VanillaSymbol, '\\rightleftharpoons ', '&#8652;');
+LatexCmds.leftrightharpoons = bind(VanillaSymbol, '\\leftrightharpoons ', '&#8651;');
 LatexCmds.hookleftarrow = bind(VanillaSymbol, '\\hookleftarrow ', '&#8617;');
 LatexCmds.hookrightarrow = bind(VanillaSymbol, '\\hookrightarrow ', '&#8618;');
 LatexCmds.searrow = bind(VanillaSymbol, '\\searrow ', '&#8600;');
@@ -341,8 +341,9 @@ LatexCmds.and = LatexCmds.land = LatexCmds.wedge =
 
 LatexCmds.or = LatexCmds.lor = LatexCmds.vee = bind(BinaryOperator,'\\vee ','&or;');
 
-LatexCmds.o = LatexCmds.O =
 LatexCmds.empty = LatexCmds.emptyset =
+bind(BinaryOperator,'\\empty ','&#x2205;');
+LatexCmds.o = LatexCmds.O =
 LatexCmds.oslash = LatexCmds.Oslash =
 LatexCmds.nothing = LatexCmds.varnothing =
   bind(BinaryOperator,'\\varnothing ','&empty;');
