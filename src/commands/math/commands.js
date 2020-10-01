@@ -1880,7 +1880,7 @@ Environments.matrix = P(Environment, function(_, super_) {
   // Create default 4-cell matrix
   _.createBlocks = function() {
     console.log(this.ctrlSeq);
-    if(this.ctrlSeq == 'matrix'||this.ctrlSeq=='pmatrix'|| this.ctrlSeq == 'bmatrix'|| this.ctrlSeq == 'Bmatrix'|| this.ctrlSeq == 'vmatrix'|| this.ctrlSeq == 'Vmatrix'){
+    if(this.ctrlSeq == 'matrix'||this.ctrlSeq=='pmatrix'|| this.ctrlSeq == 'bmatrix'|| this.ctrlSeq == 'Bmatrix'|| this.ctrlSeq == 'vmatrix'|| this.ctrlSeq == 'Vmatrix'|| this.ctrlSeq == 'array'){
       this.blocks = [
         MatrixCell(0, this),
         MatrixCell(0, this),

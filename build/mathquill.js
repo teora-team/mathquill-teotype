@@ -4043,8 +4043,10 @@ LatexCmds.nwarrow = bind(VanillaSymbol, '\\nwarrow ', '&#8598;');
 LatexCmds.ldots = bind(VanillaSymbol, '\\ldots ', '&#8230;');
 LatexCmds.cdots = bind(VanillaSymbol, '\\cdots ', '&#8943;');
 LatexCmds.vdots = bind(VanillaSymbol, '\\vdots ', '&#8942;');
+LatexCmds.iddots = bind(VanillaSymbol, '\\iddots ', '&#x22F0;');
 LatexCmds.ddots = bind(VanillaSymbol, '\\ddots ', '&#8945;');
 LatexCmds.surd = bind(VanillaSymbol, '\\surd ', '&#8730;');
+LatexCmds.mho = bind(VanillaSymbol, '\\mho ', '&#8487;');
 LatexCmds.triangle = bind(VanillaSymbol, '\\triangle ', '&#9651;');
 LatexCmds.ell = bind(VanillaSymbol, '\\ell ', '&#8467;');
 LatexCmds.top = bind(VanillaSymbol, '\\top ', '&#8868;');
@@ -4955,7 +4957,7 @@ LatexCmds.ddot = P(MathCommand, function(_, super_) {
 LatexCmds.dddot = P(MathCommand, function(_, super_) {
     _.init = function() {
         super_.init.call(this, '\\dddot', '<span class="mq-non-leaf"><span class="mq-dot-recurring-inner">'
-            + '<span class="mq-dot-recurring"> &#8411;</span>'
+            + '<span class="mq-dot-recurring"> &#20DD;</span>'
             + '<span class="mq-empty-box">&0</span>'
             + '</span></span>'
         );
@@ -6093,7 +6095,7 @@ Environments.matrix = P(Environment, function(_, super_) {
   // Create default 4-cell matrix
   _.createBlocks = function() {
     console.log(this.ctrlSeq);
-    if(this.ctrlSeq == 'matrix'||this.ctrlSeq=='pmatrix'|| this.ctrlSeq == 'bmatrix'|| this.ctrlSeq == 'Bmatrix'|| this.ctrlSeq == 'vmatrix'|| this.ctrlSeq == 'Vmatrix'){
+    if(this.ctrlSeq == 'matrix'||this.ctrlSeq=='pmatrix'|| this.ctrlSeq == 'bmatrix'|| this.ctrlSeq == 'Bmatrix'|| this.ctrlSeq == 'vmatrix'|| this.ctrlSeq == 'Vmatrix'|| this.ctrlSeq == 'array'){
       this.blocks = [
         MatrixCell(0, this),
         MatrixCell(0, this),
