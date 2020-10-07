@@ -224,10 +224,10 @@ LatexCmds.rbrack = bind(VanillaSymbol, ']');
 //various symbols
 LatexCmds.slash = bind(VanillaSymbol, '/');
 LatexCmds.vert = bind(VanillaSymbol,'|');
-LatexCmds.Vert = bind(VanillaSymbol,'\\Vert','&#8214;');
 LatexCmds.perp = LatexCmds.perpendicular = bind(VanillaSymbol,'\\perp ','&perp;');
 LatexCmds.nabla = LatexCmds.del = bind(VanillaSymbol,'\\nabla ','&nabla;');
 LatexCmds.hbar = bind(VanillaSymbol,'\\hbar ','&#8463;');
+LatexCmds.Vert = bind(VanillaSymbol,'\\Vert ','&#8214;');
 
 LatexCmds.AA = LatexCmds.Angstrom = LatexCmds.angstrom =
   bind(VanillaSymbol,'\\text\\AA ','&#8491;');
