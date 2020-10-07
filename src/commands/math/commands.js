@@ -2219,7 +2219,7 @@ Environments.vmatrix = P(Matrix, function(_, super_) {
 Environments.Vmatrix = P(Matrix, function(_, super_) {
   _.environment = 'Vmatrix';
   _.parentheses = {
-    left: ' ;',
+    left: '&#8214;',
     right: '&#8214;'
   };
 });
