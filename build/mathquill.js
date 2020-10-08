@@ -4076,6 +4076,8 @@ LatexCmds.rbrack = bind(VanillaSymbol, ']');
 //various symbols
 LatexCmds.slash = bind(VanillaSymbol, '/');
 LatexCmds.backsim = bind(VanillaSymbol, '\\backsim','&#x223D;');
+LatexCmds.backsimeq = bind(VanillaSymbol, '\\backsimeq','&#8909;');
+LatexCmds.approxeq = bind(VanillaSymbol, '\\approxeq','\u224a');
 LatexCmds.vert = bind(VanillaSymbol,'|');
 LatexCmds.perp = LatexCmds.perpendicular = bind(VanillaSymbol,'\\perp ','&perp;');
 LatexCmds.nabla = LatexCmds.del = bind(VanillaSymbol,'\\nabla ','&nabla;');
