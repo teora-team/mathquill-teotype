@@ -223,6 +223,7 @@ LatexCmds.rbrack = bind(VanillaSymbol, ']');
 
 //various symbols
 LatexCmds.slash = bind(VanillaSymbol, '/');
+LatexCmds.backsim = bind(VanillaSymbol, '\\backsim','&#x223D;');
 LatexCmds.vert = bind(VanillaSymbol,'|');
 LatexCmds.perp = LatexCmds.perpendicular = bind(VanillaSymbol,'\\perp ','&perp;');
 LatexCmds.nabla = LatexCmds.del = bind(VanillaSymbol,'\\nabla ','&nabla;');
