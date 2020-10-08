@@ -4047,6 +4047,7 @@ LatexCmds.iddots = bind(VanillaSymbol, '\\iddots ', '&#x22F0;');
 LatexCmds.ddots = bind(VanillaSymbol, '\\ddots ', '&#8945;');
 LatexCmds.surd = bind(VanillaSymbol, '\\surd ', '&#8730;');
 LatexCmds.mho = bind(VanillaSymbol, '\\mho ', '&#8487;');
+LatexCmds.checkmark = bind(VanillaSymbol, '\\checkmark ', '&check;');
 LatexCmds.triangle = bind(VanillaSymbol, '\\triangle ', '&#9651;');
 LatexCmds.ell = bind(VanillaSymbol, '\\ell ', '&#8467;');
 LatexCmds.top = bind(VanillaSymbol, '\\top ', '&#8868;');
