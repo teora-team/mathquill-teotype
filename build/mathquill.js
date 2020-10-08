@@ -4078,6 +4078,8 @@ LatexCmds.slash = bind(VanillaSymbol, '/');
 LatexCmds.backsim = bind(VanillaSymbol, '\\backsim','&#x223D;');
 LatexCmds.backsimeq = bind(VanillaSymbol, '\\backsimeq','&#8909;');
 LatexCmds.approxeq = bind(VanillaSymbol, '\\approxeq','\u224a');
+LatexCmds.ggg = bind(VanillaSymbol, '\\ggg','\u22d9');
+LatexCmds.lll = bind(VanillaSymbol, '\\lll','\u22d8');
 LatexCmds.vert = bind(VanillaSymbol,'|');
 LatexCmds.perp = LatexCmds.perpendicular = bind(VanillaSymbol,'\\perp ','&perp;');
 LatexCmds.nabla = LatexCmds.del = bind(VanillaSymbol,'\\nabla ','&nabla;');
