@@ -3926,32 +3926,26 @@ LatexCmds.notsupersete = LatexCmds.notsuperseteq =
 
 
 //the canonical sets of numbers
-LatexCmds.N = LatexCmds.naturals = LatexCmds.Naturals =
-  bind(VanillaSymbol,'\\mathbb{N}','&#8469;');
 
-LatexCmds.P =
-LatexCmds.primes = LatexCmds.Primes =
-LatexCmds.projective = LatexCmds.Projective =
-LatexCmds.probability = LatexCmds.Probability =
-  bind(VanillaSymbol,'\\mathbb{P}','&#8473;');
+  LatexCmds.mathbb = P(MathCommand, function(_) {
+    _.createLeftOf = noop;
+    _.numBlocks = function() { return 1; };
+    _.parser = function() {
+      var string = Parser.string;
+      var regex = Parser.regex;
+      var optWhitespace = Parser.optWhitespace;
+      return optWhitespace.then(string('{'))
+            .then(optWhitespace)
+            .then(regex(/^[NPZQRCH]/))
+            .skip(optWhitespace)
+            .skip(string('}'))
+            .map(function(c) {
+                // instantiate the class for the matching char
+                return LatexCmds[c]();
+      });
+    };
+  });
 
-LatexCmds.Z = LatexCmds.integers = LatexCmds.Integers =
-  bind(VanillaSymbol,'\\mathbb{Z}','&#8484;');
-
-LatexCmds.Q = LatexCmds.rationals = LatexCmds.Rationals =
-  bind(VanillaSymbol,'\\mathbb{Q}','&#8474;');
-
-LatexCmds.R = LatexCmds.reals = LatexCmds.Reals =
-  bind(VanillaSymbol,'\\mathbb{R}','&#8477;');
-
-LatexCmds.C =
-LatexCmds.complex = LatexCmds.Complex =
-LatexCmds.complexes = LatexCmds.Complexes =
-LatexCmds.complexplane = LatexCmds.Complexplane = LatexCmds.ComplexPlane =
-  bind(VanillaSymbol,'\\mathbb{C}','&#8450;');
-
-LatexCmds.H = LatexCmds.Hamiltonian = LatexCmds.quaternions = LatexCmds.Quaternions =
-  bind(VanillaSymbol,'\\mathbb{H}','&#8461;');
 
 //spacing
 LatexCmds.quad = LatexCmds.emsp = bind(VanillaSymbol,'\\quad ','    ');
@@ -4315,6 +4309,7 @@ var DoubleStruck = P(Variable, function(_, super_) {
 });
 
 //fonts
+LatexCmds.cal = LatexCmds.mathcal = bind(Style, '\\mathcal', 'span', 'class="mq-script mq-font"');
 LatexCmds.mathrm = bind(Style, '\\mathrm', 'span', 'class="mq-roman mq-font"');
 LatexCmds.mathit = bind(Style, '\\mathit', 'i', 'class="mq-font"');
 LatexCmds.mathbf = bind(Style, '\\mathbf', 'b', 'class="mq-font"');
@@ -4995,7 +4990,6 @@ var TextColor = LatexCmds.textcolor = P(MathCommand, function(_, super_) {
     var optWhitespace = Parser.optWhitespace;
     var string = Parser.string;
     var regex = Parser.regex;
-
     return optWhitespace
       .then(string('{'))
       .then(regex(/^[#\w\s.,()%-]*/))
@@ -5131,6 +5125,13 @@ var SupSub = P(MathCommand, function(_, super_) {
     }
     return latex('_', this.sub) + latex('^', this.sup);
   };
+  _.text = function() {
+    function text(prefix, block) {
+      var l = block && block.text();
+      return block ? prefix + (l.length === 1 ? l : '(' + (l || ' ') + ')') : '';
+    }
+    return text('_', this.sub) + text('^', this.sup);
+  };
   _.addBlock = function(block) {
     if (this.supsub === 'sub') {
       this.sup = this.upInto = this.sub.upOutOf = block;
@@ -5205,7 +5206,7 @@ LatexCmds['^'] = P(SupSub, function(_, super_) {
     +   '<span class="mq-sup">&0</span>'
     + '</span>'
   ;
-  _.textTemplate = [ '^' ];
+  _.textTemplate = ['^(', ')'];
   _.finalizeTree = function() {
     this.upInto = this.sup = this.ends[R];
     this.sup.downOutOf = insLeftOfMeUnlessAtEnd;

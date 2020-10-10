@@ -90,6 +90,7 @@ var DoubleStruck = P(Variable, function(_, super_) {
 });
 
 //fonts
+LatexCmds.cal = LatexCmds.mathcal = bind(Style, '\\mathcal', 'span', 'class="mq-script mq-font"');
 LatexCmds.mathrm = bind(Style, '\\mathrm', 'span', 'class="mq-roman mq-font"');
 LatexCmds.mathit = bind(Style, '\\mathit', 'i', 'class="mq-font"');
 LatexCmds.mathbf = bind(Style, '\\mathbf', 'b', 'class="mq-font"');
@@ -770,7 +771,6 @@ var TextColor = LatexCmds.textcolor = P(MathCommand, function(_, super_) {
     var optWhitespace = Parser.optWhitespace;
     var string = Parser.string;
     var regex = Parser.regex;
-
     return optWhitespace
       .then(string('{'))
       .then(regex(/^[#\w\s.,()%-]*/))
@@ -906,6 +906,13 @@ var SupSub = P(MathCommand, function(_, super_) {
     }
     return latex('_', this.sub) + latex('^', this.sup);
   };
+  _.text = function() {
+    function text(prefix, block) {
+      var l = block && block.text();
+      return block ? prefix + (l.length === 1 ? l : '(' + (l || ' ') + ')') : '';
+    }
+    return text('_', this.sub) + text('^', this.sup);
+  };
   _.addBlock = function(block) {
     if (this.supsub === 'sub') {
       this.sup = this.upInto = this.sub.upOutOf = block;
@@ -980,7 +987,7 @@ LatexCmds['^'] = P(SupSub, function(_, super_) {
     +   '<span class="mq-sup">&0</span>'
     + '</span>'
   ;
-  _.textTemplate = [ '^' ];
+  _.textTemplate = ['^(', ')'];
   _.finalizeTree = function() {
     this.upInto = this.sup = this.ends[R];
     this.sup.downOutOf = insLeftOfMeUnlessAtEnd;

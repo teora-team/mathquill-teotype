@@ -74,32 +74,26 @@ LatexCmds.notsupersete = LatexCmds.notsuperseteq =
 
 
 //the canonical sets of numbers
-LatexCmds.N = LatexCmds.naturals = LatexCmds.Naturals =
-  bind(VanillaSymbol,'\\mathbb{N}','&#8469;');
 
-LatexCmds.P =
-LatexCmds.primes = LatexCmds.Primes =
-LatexCmds.projective = LatexCmds.Projective =
-LatexCmds.probability = LatexCmds.Probability =
-  bind(VanillaSymbol,'\\mathbb{P}','&#8473;');
+  LatexCmds.mathbb = P(MathCommand, function(_) {
+    _.createLeftOf = noop;
+    _.numBlocks = function() { return 1; };
+    _.parser = function() {
+      var string = Parser.string;
+      var regex = Parser.regex;
+      var optWhitespace = Parser.optWhitespace;
+      return optWhitespace.then(string('{'))
+            .then(optWhitespace)
+            .then(regex(/^[NPZQRCH]/))
+            .skip(optWhitespace)
+            .skip(string('}'))
+            .map(function(c) {
+                // instantiate the class for the matching char
+                return LatexCmds[c]();
+      });
+    };
+  });
 
-LatexCmds.Z = LatexCmds.integers = LatexCmds.Integers =
-  bind(VanillaSymbol,'\\mathbb{Z}','&#8484;');
-
-LatexCmds.Q = LatexCmds.rationals = LatexCmds.Rationals =
-  bind(VanillaSymbol,'\\mathbb{Q}','&#8474;');
-
-LatexCmds.R = LatexCmds.reals = LatexCmds.Reals =
-  bind(VanillaSymbol,'\\mathbb{R}','&#8477;');
-
-LatexCmds.C =
-LatexCmds.complex = LatexCmds.Complex =
-LatexCmds.complexes = LatexCmds.Complexes =
-LatexCmds.complexplane = LatexCmds.Complexplane = LatexCmds.ComplexPlane =
-  bind(VanillaSymbol,'\\mathbb{C}','&#8450;');
-
-LatexCmds.H = LatexCmds.Hamiltonian = LatexCmds.quaternions = LatexCmds.Quaternions =
-  bind(VanillaSymbol,'\\mathbb{H}','&#8461;');
 
 //spacing
 LatexCmds.quad = LatexCmds.emsp = bind(VanillaSymbol,'\\quad ','    ');

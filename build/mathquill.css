@@ -840,6 +840,10 @@
   width: 100%;
   padding: 0.1em;
 }
+.mq-math-mode .mq-script {
+  font-family: URW Chancery L, Apple Chancery, Snell Roundhand, Bradley Hand,
+                 Brush Script MT, Brush Script Std, Comic Sans MS, Comic Sans, cursive;
+}
 @supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
   .mq-math-mode .mq-overarrow:before,
   .mq-math-mode .mq-underarrow:before,
