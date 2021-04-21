@@ -195,9 +195,10 @@
   font-family: sans-serif, Symbola, serif;
 }
 .mq-math-mode .mq-monospace {
-  font-family: monospace, Symbola, serif;
+  font-family: KaTeX_Typewriter, monospace, Symbola, serif;
 }
 .mq-math-mode .mq-mathbb .mq-original {
+  font-family: KaTeX_AMS;
   display: none;
 }
 .mq-math-mode .mq-boxed {
@@ -210,7 +211,7 @@
 }
 .mq-math-mode .mq-sout::before,
 .mq-math-mode .mq-sout::after {
-  content: '';
+  content: "";
   width: 100%;
   position: absolute;
   right: 0;
@@ -261,7 +262,7 @@
 }
 .mq-math-mode .mq-xcancel::before,
 .mq-math-mode .mq-xcancel::after {
-  content: '';
+  content: "";
   width: 100%;
   position: absolute;
   right: 0;
@@ -502,7 +503,7 @@
 .mq-math-mode .mq-underarrow.mq-arrow-left:before,
 .mq-math-mode .mq-overarrow.mq-arrow-leftright:before,
 .mq-math-mode .mq-underarrow.mq-arrow-leftright:before {
-  content: '\2190';
+  content: "\2190";
   text-align: left;
   left: -1px;
 }
@@ -510,13 +511,13 @@
 .mq-math-mode .mq-underarrow.mq-arrow-right:before,
 .mq-math-mode .mq-overarrow.mq-arrow-leftright:after,
 .mq-math-mode .mq-underarrow.mq-arrow-leftright:after {
-  content: '\2192';
+  content: "\2192";
   text-align: right;
   right: -1px;
 }
 .mq-math-mode .mq-overarrow.mq-empty .mq-inner:before,
 .mq-math-mode .mq-underarrow.mq-empty .mq-inner:before {
-  content: 'c';
+  content: "c";
   visibility: hidden;
 }
 .mq-math-mode .mq-overlinesegment,
@@ -536,19 +537,19 @@
 }
 .mq-math-mode .mq-overlinesegment.mq-arrow-leftright:before,
 .mq-math-mode .mq-underlinesegment.mq-arrow-leftright:before {
-  content: '|';
+  content: "|";
   text-align: left;
   left: -1px;
 }
 .mq-math-mode .mq-overlinesegment.mq-arrow-leftright:after,
 .mq-math-mode .mq-underlinesegment.mq-arrow-leftright:after {
-  content: '|';
+  content: "|";
   text-align: right;
   right: -1px;
 }
 .mq-math-mode .mq-overlinesegment.mq-empty .mq-inner:before,
 .mq-math-mode .mq-underlinesegment.mq-empty .mq-inner:before {
-  content: 'c';
+  content: "c";
   visibility: hidden;
 }
 .mq-math-mode .mq-overlinesegment:before,
@@ -841,10 +842,15 @@
   padding: 0.1em;
 }
 .mq-math-mode .mq-script {
-  font-family: URW Chancery L, Apple Chancery, Snell Roundhand, Bradley Hand,
-                 Brush Script MT, Brush Script Std, Comic Sans MS, Comic Sans, cursive;
+  font-family: KaTeX_Caligraphic, URW Chancery L, Apple Chancery,
+      Snell Roundhand, Bradley Hand, Brush Script MT, Brush Script Std,
+      Comic Sans MS, Comic Sans, cursive;
 }
-@supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
+.mq-math-mode .mq-fraktur {
+  font-family: KaTeX_Fraktur;
+}
+@supports (-moz-appearance: meterbar) and
+    (background-blend-mode: difference, normal) {
   .mq-math-mode .mq-overarrow:before,
   .mq-math-mode .mq-underarrow:before,
   .mq-math-mode .mq-overarrow:after,
@@ -878,7 +884,7 @@
     top: -2.3em;
     font-size: 0.5em;
     line-height: 0em;
-    content: '\27A4';
+    content: "\27A4";
     visibility: visible;
     text-align: right;
   }

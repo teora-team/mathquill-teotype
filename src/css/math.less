@@ -1,4 +1,5 @@
-.mq-root-block, .mq-math-mode .mq-root-block {
+.mq-root-block,
+.mq-math-mode .mq-root-block {
   .inline-block;
   width: 100%;
   padding: 2px;
@@ -15,14 +16,17 @@
   line-height: 1;
 
   .inline-block;
-  .mq-non-leaf, .mq-scaled {
+  .mq-non-leaf,
+  .mq-scaled {
     .inline-block;
   }
 
   // TODO: dasherize non-symbola
-  var, .mq-text-mode, .mq-nonSymbola {
+  var,
+  .mq-text-mode,
+  .mq-nonSymbola {
     font-family: @times;
-    line-height: .9;
+    line-height: 0.9;
   }
 
   * {
@@ -47,16 +51,15 @@
     background: transparent;
   }
 
-
   .mq-text-mode {
     display: inline-block;
     white-space: pre;
   }
 
   .mq-text-mode.mq-hasCursor {
-    box-shadow: inset darkgray 0 .1em .2em;
-    padding: 0 .1em;
-    margin: 0 -.1em;
+    box-shadow: inset darkgray 0 0.1em 0.2em;
+    padding: 0 0.1em;
+    margin: 0 -0.1em;
 
     min-width: 1ex;
   }
@@ -71,11 +74,14 @@
   }
 
   // TODO [Han]: Why do we have to special-case .font?
-  b, b.mq-font {
+  b,
+  b.mq-font {
     font-weight: bolder;
   }
 
-  var, i, i.mq-font {
+  var,
+  i,
+  i.mq-font {
     font-style: italic;
   }
 
@@ -92,24 +98,25 @@
     font-size: 200%;
   }
 
-  .mq-int, .mq-intsub {
+  .mq-int,
+  .mq-intsub {
     > big {
       display: inline-block;
-      .transform(scaleX(.7));
-      vertical-align: -.16em;
+      .transform(scaleX(0.7));
+      vertical-align: -0.16em;
     }
 
     > .mq-supsub {
       font-size: 80%;
       vertical-align: -1.1em;
-      padding-right: .2em;
+      padding-right: 0.2em;
 
       > .mq-sup > .mq-sup-inner {
         vertical-align: 1.3em;
       }
 
       > .mq-sub {
-        margin-left: -.35em;
+        margin-left: -0.35em;
       }
     }
   }
@@ -123,10 +130,11 @@
   }
 
   .mq-monospace {
-    font-family: monospace, Symbola, serif;
+    font-family: KaTeX_Typewriter, monospace, Symbola, serif;
   }
 
   .mq-mathbb .mq-original {
+    font-family: KaTeX_AMS;
     display: none;
   }
 
@@ -134,93 +142,95 @@
     border: 2px solid black;
     margin: 1px;
   }
-  
+
   .mq-sout {
     position: relative;
     display: inline-block;
-}
-.mq-sout::before, .mq-sout::after {
-    content: '';
+  }
+  .mq-sout::before,
+  .mq-sout::after {
+    content: "";
     width: 100%;
     position: absolute;
     right: 0;
     top: 40%;
-}
-.mq-sout::before {
+  }
+  .mq-sout::before {
     border-bottom: 1px solid black;
-}
+  }
 
-
-  .mq-cancel{
+  .mq-cancel {
     display: inline-block;
     position: relative;
   }
   .mq-cancel::before {
     position: absolute;
-  content: "";
-  left: 0;
-  top: 50%;
-  right: 0;
-  border-top: 1px solid;
-  border-color: inherit;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
 
-  -webkit-transform:rotate(-5deg);
-  -moz-transform:rotate(-5deg);
-  -ms-transform:rotate(-5deg);
-  -o-transform:rotate(-5deg);
-  transform:rotate(-5deg);
+    -webkit-transform: rotate(-5deg);
+    -moz-transform: rotate(-5deg);
+    -ms-transform: rotate(-5deg);
+    -o-transform: rotate(-5deg);
+    transform: rotate(-5deg);
   }
 
-  .mq-bcancel{
+  .mq-bcancel {
     display: inline-block;
     position: relative;
   }
   .mq-bcancel::before {
     position: absolute;
-  content: "";
-  left: 0;
-  top: 50%;
-  right: 0;
-  border-top: 1px solid;
-  border-color: inherit;
+    content: "";
+    left: 0;
+    top: 50%;
+    right: 0;
+    border-top: 1px solid;
+    border-color: inherit;
 
-  -webkit-transform:rotate(5deg);
-  -moz-transform:rotate(5deg);
-  -ms-transform:rotate(5deg);
-  -o-transform:rotate(5deg);
-  transform:rotate(5deg);
+    -webkit-transform: rotate(5deg);
+    -moz-transform: rotate(5deg);
+    -ms-transform: rotate(5deg);
+    -o-transform: rotate(5deg);
+    transform: rotate(5deg);
   }
 
   .mq-xcancel {
     position: relative;
     display: inline-block;
-}
-.mq-xcancel::before, .mq-xcancel::after {
-    content: '';
+  }
+  .mq-xcancel::before,
+  .mq-xcancel::after {
+    content: "";
     width: 100%;
     position: absolute;
     right: 0;
     top: 50%;
-}
-.mq-xcancel::before {
+  }
+  .mq-xcancel::before {
     border-bottom: 1px solid black;
     -webkit-transform: skewY(-10deg);
     transform: skewY(-10deg);
-}
-.mq-xcancel::after {
+  }
+  .mq-xcancel::after {
     border-bottom: 1px solid black;
     -webkit-transform: skewY(10deg);
     transform: skewY(10deg);
-}
-  
+  }
 
   .mq-overline,
-  .mq-overarrow,.mq-overlinesegment {
+  .mq-overarrow,
+  .mq-overlinesegment {
     border-top: 1px solid black;
     margin-top: 1px;
   }
   .mq-underline,
-  .mq-underarrow,.mq-underlinesegment {
+  .mq-underarrow,
+  .mq-underlinesegment {
     border-bottom: 1px solid black;
     margin-bottom: 1px;
   }
@@ -245,10 +255,10 @@
   .mq-supsub {
     text-align: left;
     font-size: 90%;
-    vertical-align: -.5em;
+    vertical-align: -0.5em;
 
     &.mq-sup-only {
-      vertical-align: .5em;
+      vertical-align: 0.5em;
 
       .mq-sup {
         display: inline-block;
@@ -266,7 +276,7 @@
     }
 
     .mq-binary-operator {
-      padding: 0 .1em;
+      padding: 0 0.1em;
     }
 
     // special styles for fractions
@@ -279,27 +289,29 @@
   sup.mq-nthroot {
     font-size: 80%;
     vertical-align: 0.8em;
-    margin-right: -.6em;
-    margin-left: .2em;
-    min-width: .5em;
+    margin-right: -0.6em;
+    margin-left: 0.2em;
+    min-width: 0.5em;
   }
 
   ////
   // parentheses
   .mq-paren {
-    padding: 0 .1em;
+    padding: 0 0.1em;
     vertical-align: top;
-    -webkit-transform-origin: center .06em;
-    -moz-transform-origin: center .06em;
-    -ms-transform-origin: center .06em;
-    -o-transform-origin: center .06em;
-    transform-origin: center .06em;
+    -webkit-transform-origin: center 0.06em;
+    -moz-transform-origin: center 0.06em;
+    -ms-transform-origin: center 0.06em;
+    -o-transform-origin: center 0.06em;
+    transform-origin: center 0.06em;
 
-    &.mq-ghost { color: silver; }
+    &.mq-ghost {
+      color: silver;
+    }
 
     + span {
-      margin-top: .1em;
-      margin-bottom: .1em;
+      margin-top: 0.1em;
+      margin-bottom: 0.1em;
     }
   }
 
@@ -317,14 +329,15 @@
   // like \sin, \cos, \ln, etc.
   .mq-operator-name {
     font-family: Symbola, "Times New Roman", serif;
-    line-height: .9;
+    line-height: 0.9;
     font-style: normal;
   }
   var.mq-operator-name.mq-first {
-    padding-left: .2em;
+    padding-left: 0.2em;
   }
-  var.mq-operator-name.mq-last, .mq-supsub.mq-after-operator-name {
-    padding-right: .2em;
+  var.mq-operator-name.mq-last,
+  .mq-supsub.mq-after-operator-name {
+    padding-right: 0.2em;
   }
 
   ////
@@ -336,22 +349,29 @@
   .mq-fraction {
     font-size: 90%;
     text-align: center;
-    vertical-align: -.4em;
-    padding: 0 .2em;
+    vertical-align: -0.4em;
+    padding: 0 0.2em;
   }
 
   // Firefox 2 (and older?) only
   // because display:inline-block is FUBAR in Gecko < 1.9.0
-  .mq-fraction, .mq-large-operator, x:-moz-any-link {
+  .mq-fraction,
+  .mq-large-operator,
+  x:-moz-any-link {
     display: -moz-groupbox;
   }
 
   // Firefox 3+ (Gecko 1.9.0+)
-  .mq-fraction, .mq-large-operator, x:-moz-any-link, x:default {
+  .mq-fraction,
+  .mq-large-operator,
+  x:-moz-any-link,
+  x:default {
     display: inline-block;
   }
 
-  .mq-numerator, .mq-denominator, .mq-dot-recurring {
+  .mq-numerator,
+  .mq-denominator,
+  .mq-dot-recurring {
     display: block;
   }
 
@@ -371,7 +391,6 @@
     height: 0.3em;
   }
 
-
   ////
   // \sqrt
   // square roots
@@ -386,16 +405,16 @@
   .mq-sqrt-stem {
     border-top: 1px solid;
     margin-top: 1px;
-    padding-left: .15em;
-    padding-right: .2em;
-    margin-right: .1em;
+    padding-left: 0.15em;
+    padding-right: 0.2em;
+    margin-right: 0.1em;
     padding-top: 1px;
   }
 
   .mq-diacritic-above {
     display: block;
     text-align: center;
-    line-height: .4em;
+    line-height: 0.4em;
   }
 
   .mq-diacritic-stem {
@@ -406,8 +425,8 @@
   .mq-hat-prefix {
     display: block;
     text-align: center;
-    line-height: .95em;
-    margin-bottom: -.7em;
+    line-height: 0.95em;
+    margin-bottom: -0.7em;
     transform: scaleX(1.5);
     -moz-transform: scaleX(1.5);
     -o-transform: scaleX(1.5);
@@ -417,16 +436,19 @@
   .mq-hat-stem {
     display: block;
   }
-  
+
   .mq-large-operator {
-    vertical-align: -.2em;
-    padding: .2em;
+    vertical-align: -0.2em;
+    padding: 0.2em;
     text-align: center;
 
-    .mq-from, big, .mq-to  {
+    .mq-from,
+    big,
+    .mq-to {
       display: block;
     }
-    .mq-from, .mq-to  {
+    .mq-from,
+    .mq-to {
       font-size: 80%;
     }
     .mq-from {
@@ -435,32 +457,32 @@
     }
   }
 
-
-  &, .mq-editable-field {
+  &,
+  .mq-editable-field {
     cursor: text;
     font-family: @symbola;
   }
 
   .mq-overarc {
     border-top: 1px solid black;
-    -webkit-border-top-right-radius: 50% .3em;
-    -moz-border-radius-topright: 50% .3em;
-    border-top-right-radius: 50% .3em;
-    -webkit-border-top-left-radius: 50% .3em;
-    -moz-border-radius-topleft: 50% .3em;
-    border-top-left-radius: 50% .3em;
+    -webkit-border-top-right-radius: 50% 0.3em;
+    -moz-border-radius-topright: 50% 0.3em;
+    border-top-right-radius: 50% 0.3em;
+    -webkit-border-top-left-radius: 50% 0.3em;
+    -moz-border-radius-topleft: 50% 0.3em;
+    border-top-left-radius: 50% 0.3em;
     margin-top: 1px;
     padding-top: 0.15em;
   }
 
   .mq-underarc {
     border-bottom: 1px solid black;
-    -webkit-border-bottom-right-radius: 50% .3em;
-    -moz-border-radius-bottomright: 50% .3em;
-    border-bottom-right-radius: 50% .3em;
-    -webkit-border-bottom-left-radius: 50% .3em;
-    -moz-border-radius-bottomleft: 50% .3em;
-    border-bottom-left-radius: 50% .3em;
+    -webkit-border-bottom-right-radius: 50% 0.3em;
+    -moz-border-radius-bottomright: 50% 0.3em;
+    border-bottom-right-radius: 50% 0.3em;
+    -webkit-border-bottom-left-radius: 50% 0.3em;
+    -moz-border-radius-bottomleft: 50% 0.3em;
+    border-bottom-left-radius: 50% 0.3em;
     margin-bottom: 1px;
     padding-bottom: 0.15em;
   }
@@ -480,24 +502,24 @@
     }
     &.mq-arrow-left:before,
     &.mq-arrow-leftright:before {
-      content: '\2190';
+      content: "\2190";
       text-align: left;
       left: -1px;
     }
     &.mq-arrow-right:before,
     &.mq-arrow-leftright:after {
-      content: '\2192';
+      content: "\2192";
       text-align: right;
       right: -1px;
     }
     &.mq-empty .mq-inner:before {
-      content: 'c';
+      content: "c";
       visibility: hidden;
     }
   }
-  
 
-  .mq-overlinesegment,.mq-underlinesegment{
+  .mq-overlinesegment,
+  .mq-underlinesegment {
     text-align: center;
     position: relative;
     &:before,
@@ -509,17 +531,17 @@
       min-width: 0.8em;
     }
     &.mq-arrow-leftright:before {
-      content: '|';
+      content: "|";
       text-align: left;
       left: -1px;
     }
     &.mq-arrow-leftright:after {
-      content: '|';
+      content: "|";
       text-align: right;
       right: -1px;
     }
     &.mq-empty .mq-inner:before {
-      content: 'c';
+      content: "c";
       visibility: hidden;
     }
   }
@@ -555,11 +577,14 @@
     position: relative;
   }
 
-  .mq-harpoons-numerator, .mq-harpoons-denominator, .mq-harpoons-harpoons {
+  .mq-harpoons-numerator,
+  .mq-harpoons-denominator,
+  .mq-harpoons-harpoons {
     display: block;
   }
 
-  .mq-harpoons-numerator, .mq-harpoons-denominator {
+  .mq-harpoons-numerator,
+  .mq-harpoons-denominator {
     font-size: 70%;
   }
 
@@ -578,11 +603,14 @@
     position: relative;
   }
 
-  .mq-xleftrightharpoons-numerator, .mq-xleftrightharpoons-denominator, .mq-xleftrightharpoons-xleftrightharpoons {
+  .mq-xleftrightharpoons-numerator,
+  .mq-xleftrightharpoons-denominator,
+  .mq-xleftrightharpoons-xleftrightharpoons {
     display: block;
   }
 
-  .mq-xleftrightharpoons-numerator, .mq-xleftrightharpoons-denominator {
+  .mq-xleftrightharpoons-numerator,
+  .mq-xleftrightharpoons-denominator {
     font-size: 70%;
   }
 
@@ -601,11 +629,14 @@
     position: relative;
   }
 
-  .mq-xright-numerator, .mq-xright-denominator, .mq-xright-xright {
+  .mq-xright-numerator,
+  .mq-xright-denominator,
+  .mq-xright-xright {
     display: block;
   }
 
-  .mq-xright-numerator, .mq-xright-denominator {
+  .mq-xright-numerator,
+  .mq-xright-denominator {
     font-size: 70%;
   }
 
@@ -624,11 +655,14 @@
     position: relative;
   }
 
-  .mq-xRight-numerator, .mq-xRight-denominator, .mq-xRight-xRight {
+  .mq-xRight-numerator,
+  .mq-xRight-denominator,
+  .mq-xRight-xRight {
     display: block;
   }
 
-  .mq-xRight-numerator, .mq-xRight-denominator {
+  .mq-xRight-numerator,
+  .mq-xRight-denominator {
     font-size: 70%;
   }
 
@@ -647,11 +681,14 @@
     position: relative;
   }
 
-  .mq-xleft-numerator, .mq-xleft-denominator, .mq-xleft-xleft {
+  .mq-xleft-numerator,
+  .mq-xleft-denominator,
+  .mq-xleft-xleft {
     display: block;
   }
 
-  .mq-xleft-numerator, .mq-xleft-denominator {
+  .mq-xleft-numerator,
+  .mq-xleft-denominator {
     font-size: 70%;
   }
 
@@ -670,11 +707,14 @@
     position: relative;
   }
 
-  .mq-xLeft-numerator, .mq-xLeft-denominator, .mq-xLeft-xLeft {
+  .mq-xLeft-numerator,
+  .mq-xLeft-denominator,
+  .mq-xLeft-xLeft {
     display: block;
   }
 
-  .mq-xLeft-numerator, .mq-xLeft-denominator {
+  .mq-xLeft-numerator,
+  .mq-xLeft-denominator {
     font-size: 70%;
   }
 
@@ -693,11 +733,14 @@
     position: relative;
   }
 
-  .mq-xleftright-numerator, .mq-xleftright-denominator, .mq-xleftright-xleftright {
+  .mq-xleftright-numerator,
+  .mq-xleftright-denominator,
+  .mq-xleftright-xleftright {
     display: block;
   }
 
-  .mq-xleftright-numerator, .mq-xleftright-denominator {
+  .mq-xleftright-numerator,
+  .mq-xleftright-denominator {
     font-size: 70%;
   }
 
@@ -716,11 +759,14 @@
     position: relative;
   }
 
-  .mq-xLeftright-numerator, .mq-xLeftright-denominator, .mq-xLeftright-xLeftright {
+  .mq-xLeftright-numerator,
+  .mq-xLeftright-denominator,
+  .mq-xLeftright-xLeftright {
     display: block;
   }
 
-  .mq-xLeftright-numerator, .mq-xLeftright-denominator {
+  .mq-xLeftright-numerator,
+  .mq-xLeftright-denominator {
     font-size: 70%;
   }
 
@@ -739,11 +785,14 @@
     position: relative;
   }
 
-  .mq-xhookright-numerator, .mq-xhookright-denominator, .mq-xhookright-xhookright {
+  .mq-xhookright-numerator,
+  .mq-xhookright-denominator,
+  .mq-xhookright-xhookright {
     display: block;
   }
 
-  .mq-xhookright-numerator, .mq-xhookright-denominator {
+  .mq-xhookright-numerator,
+  .mq-xhookright-denominator {
     font-size: 70%;
   }
 
@@ -762,11 +811,14 @@
     position: relative;
   }
 
-  .mq-xhookleft-numerator, .mq-xhookleft-denominator, .mq-xhookleft-xhookleft {
+  .mq-xhookleft-numerator,
+  .mq-xhookleft-denominator,
+  .mq-xhookleft-xhookleft {
     display: block;
   }
 
-  .mq-xhookleft-numerator, .mq-xhookleft-denominator {
+  .mq-xhookleft-numerator,
+  .mq-xhookleft-denominator {
     font-size: 70%;
   }
 
@@ -785,11 +837,14 @@
     position: relative;
   }
 
-  .mq-xtofrom-numerator, .mq-xtofrom-denominator, .mq-xtofrom-xtofrom {
+  .mq-xtofrom-numerator,
+  .mq-xtofrom-denominator,
+  .mq-xtofrom-xtofrom {
     display: block;
   }
 
-  .mq-xtofrom-numerator, .mq-xtofrom-denominator {
+  .mq-xtofrom-numerator,
+  .mq-xtofrom-denominator {
     font-size: 70%;
   }
 
@@ -808,11 +863,14 @@
     position: relative;
   }
 
-  .mq-xlongequal-numerator, .mq-xlongequal-denominator, .mq-xlongequal-xlongequal {
+  .mq-xlongequal-numerator,
+  .mq-xlongequal-denominator,
+  .mq-xlongequal-xlongequal {
     display: block;
   }
 
-  .mq-xlongequal-numerator, .mq-xlongequal-denominator {
+  .mq-xlongequal-numerator,
+  .mq-xlongequal-denominator {
     font-size: 70%;
   }
 
@@ -831,11 +889,14 @@
     position: relative;
   }
 
-  .mq-xmapsto-numerator, .mq-xmapsto-denominator, .mq-xmapsto-xmapsto {
+  .mq-xmapsto-numerator,
+  .mq-xmapsto-denominator,
+  .mq-xmapsto-xmapsto {
     display: block;
   }
 
-  .mq-xmapsto-numerator, .mq-xmapsto-denominator {
+  .mq-xmapsto-numerator,
+  .mq-xmapsto-denominator {
     font-size: 70%;
   }
 
@@ -852,13 +913,18 @@
   .mq-script {
     // A selection of script-style fonts, in the hope that the browser has at least one
     // Better would be to include a script font with MathQuill (e.g., use what MathJax uses)
-    font-family: URW Chancery L, Apple Chancery, Snell Roundhand, Bradley Hand,
-                 Brush Script MT, Brush Script Std, Comic Sans MS, Comic Sans, cursive;
+    font-family: KaTeX_Caligraphic, URW Chancery L, Apple Chancery,
+      Snell Roundhand, Bradley Hand, Brush Script MT, Brush Script Std,
+      Comic Sans MS, Comic Sans, cursive;
+  }
+  .mq-fraktur {
+    font-family: KaTeX_Fraktur;
   }
 
   // @supports hack for Firefox ≥ 30
   // from http://browserhacks.com/
-  @supports (-moz-appearance:meterbar) and (background-blend-mode:difference,normal) {
+  @supports (-moz-appearance: meterbar) and
+    (background-blend-mode: difference, normal) {
     .mq-overarrow,
     .mq-underarrow {
       &:before,
@@ -882,7 +948,7 @@
           top: -0.34em;
         }
       }
-      &:before{
+      &:before {
         -moz-transform: scaleX(-1);
         -o-transform: scaleX(-1);
         -webkit-transform: scaleX(-1);
@@ -896,7 +962,7 @@
         top: -2.3em;
         font-size: 0.5em;
         line-height: 0em;
-        content: '\27A4';
+        content: "\27A4";
         visibility: visible; //must override .mq-editable-field.mq-empty:after
         text-align: right;
       }
@@ -913,7 +979,8 @@
       border-bottom: none;
       border-spacing: 3px;
       border-collapse: separate;
-      &.mq-rows-1 { /* better alignment when there's just one row */
+      &.mq-rows-1 {
+        /* better alignment when there's just one row */
         vertical-align: middle;
         margin-bottom: 1px;
       }
@@ -940,5 +1007,4 @@
       border-left: 0.5px solid black;
     }
   }
-
 }
