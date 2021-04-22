@@ -106,28 +106,6 @@ LatexCmds.nsupe = LatexCmds.nsupeq = LatexCmds.notsupe = LatexCmds.notsupeq = La
 
 //the canonical sets of numbers
 
-LatexCmds.mathbb = P(MathCommand, function (_) {
-  _.createLeftOf = noop;
-  _.numBlocks = function () {
-    return 1;
-  };
-  _.parser = function () {
-    var string = Parser.string;
-    var regex = Parser.regex;
-    var optWhitespace = Parser.optWhitespace;
-    return optWhitespace
-      .then(string("{"))
-      .then(optWhitespace)
-      .then(regex(/^[NPZQRCH]/))
-      .skip(optWhitespace)
-      .skip(string("}"))
-      .map(function (c) {
-        // instantiate the class for the matching char
-        return LatexCmds[c]();
-      });
-  };
-});
-
 //spacing
 LatexCmds.quad = LatexCmds.emsp = bind(VanillaSymbol, "\\quad ", "    ");
 LatexCmds.qquad = bind(VanillaSymbol, "\\qquad ", "        ");

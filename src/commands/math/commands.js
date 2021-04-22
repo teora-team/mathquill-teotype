@@ -110,7 +110,7 @@ LatexCmds.cal = LatexCmds.mathcal = bind(
 );
 LatexCmds.mathrm = bind(Style, "\\mathrm", "span", 'class="mq-roman mq-font"');
 LatexCmds.mathit = bind(Style, "\\mathit", "i", 'class="mq-font"');
-LatexCmds.mathfrak = bind(
+LatexCmds.mathfrak = LatexCmds.frak = bind(
   Style,
   "\\mathfrak",
   "span",
@@ -121,6 +121,12 @@ LatexCmds.mathscr = bind(
   "\\mathscr",
   "span",
   'class="mq-script mq-font"'
+);
+LatexCmds.mathbb = LatexCmds.Bbb = bind(
+  Style,
+  "\\mathbb",
+  "span",
+  'class="mq-mathbb mq-font"'
 );
 LatexCmds.mathbf = bind(Style, "\\mathbf", "b", 'class="mq-font"');
 LatexCmds.mathsf = bind(
@@ -135,64 +141,6 @@ LatexCmds.mathtt = bind(
   "span",
   'class="mq-monospace mq-font"'
 );
-LatexCmds.mathbb = P(MathCommand, function (_, super_) {
-  _.init = function () {
-    super_.init.call(
-      this,
-      "\\mathbb",
-      '<span class="mq-mathbb mq-font">&0</span>'
-    );
-  };
-  _.adopt = function () {
-    this.eachChild(function (child) {
-      if (!child.writeOverride) {
-        var origWrite = child.write,
-          origDeleteOutOf = child.deleteOutOf;
-        child.write = child.writeOverride = function (
-          cursor,
-          ch,
-          replacedFragment
-        ) {
-          var cmd;
-          if (DoubleStruck.prototype.symbols[ch]) {
-            cmd = DoubleStruck(ch);
-            if (replacedFragment) cmd.replaces(replacedFragment);
-            cmd.createLeftOf(cursor);
-          } else {
-            return origWrite.apply(child, arguments);
-          }
-        };
-        child.deleteOutOf = function (dir, cursor) {
-          var variables = [];
-          child.eachChild(function (grand) {
-            var ch = grand.ctrlSeq;
-            variables.push(Variable(ch).adopt(child, child.ends[R], 0));
-            grand.remove();
-          });
-          if (variables.length) cursor[R] = variables[0];
-          child.jQize().appendTo(child.jQ);
-          return origDeleteOutOf.apply(child, arguments);
-        };
-      }
-    });
-    return super_.adopt.apply(this, arguments);
-  };
-  _.finalizeTree = function () {
-    this.eachChild(function (child) {
-      child.eachChild(function (grand) {
-        var ch = grand.ctrlSeq,
-          NewCmd = Variable;
-        if (DoubleStruck.prototype.symbols[ch]) {
-          NewCmd = DoubleStruck;
-        }
-        NewCmd(ch).adopt(child, child.ends[R], 0);
-        grand.remove();
-      });
-      child.jQize().appendTo(child.jQ);
-    });
-  };
-});
-
 //text-decoration
 LatexCmds.underline = bind(
   Style,
