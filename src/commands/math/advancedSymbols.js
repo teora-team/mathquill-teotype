@@ -257,6 +257,8 @@ LatexCmds.spadesuit = bind(VanillaSymbol, "\\spadesuit ", "&#9824;");
 LatexCmds.parallelogram = bind(VanillaSymbol, "\\parallelogram ", "&#9649;");
 LatexCmds.square = bind(VanillaSymbol, "\\square ", "&#9633;");
 LatexCmds.blacksquare = bind(VanillaSymbol, "\\blacksquare ", "&#9632;");
+LatexCmds.imath = LatexCmds.i = bind(VanillaSymbol, "\\imath ", "&imath;");
+LatexCmds.jmath = LatexCmds.j = bind(VanillaSymbol, "\\jmath ", "&#567;");
 
 //delimiters
 LatexCmds.lfloor = bind(VanillaSymbol, "\\lfloor ", "&#8970;");

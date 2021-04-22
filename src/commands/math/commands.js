@@ -1729,6 +1729,23 @@ var SquareRoot = (LatexCmds.sqrt = LatexCmds["√"] = P(
     };
   }
 ));
+LatexCmds.phase = P(MathCommand, function (_, super_) {
+  _.ctrlSeq = "\\phase";
+  _.htmlTemplate =
+    '<span class="mq-non-leaf">' +
+    '<span class="mq-phase-prefix">&#x2220;</span>' +
+    '<span class="mq-non-leaf mq-phase-stem">&0</span>' +
+    "</span>";
+  _.textTemplate = ["phase(", ")"];
+  _.reflow = function () {
+    var block = this.ends[R].jQ;
+    scale(
+      block.prev(),
+      1,
+      block.innerHeight() / +block.css("fontSize").slice(0, -2) - 0.1
+    );
+  };
+});
 
 var Hat = (LatexCmds.hat = P(MathCommand, function (_, super_) {
   _.ctrlSeq = "\\hat";

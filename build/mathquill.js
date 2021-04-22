@@ -4109,6 +4109,8 @@ LatexCmds.spadesuit = bind(VanillaSymbol, "\\spadesuit ", "&#9824;");
 LatexCmds.parallelogram = bind(VanillaSymbol, "\\parallelogram ", "&#9649;");
 LatexCmds.square = bind(VanillaSymbol, "\\square ", "&#9633;");
 LatexCmds.blacksquare = bind(VanillaSymbol, "\\blacksquare ", "&#9632;");
+LatexCmds.imath = LatexCmds.i = bind(VanillaSymbol, "\\imath ", "&imath;");
+LatexCmds.jmath = LatexCmds.j = bind(VanillaSymbol, "\\jmath ", "&#567;");
 
 //delimiters
 LatexCmds.lfloor = bind(VanillaSymbol, "\\lfloor ", "&#8970;");
@@ -6100,6 +6102,23 @@ var SquareRoot = (LatexCmds.sqrt = LatexCmds["\u221a"] = P(
     };
   }
 ));
+LatexCmds.phase = P(MathCommand, function (_, super_) {
+  _.ctrlSeq = "\\phase";
+  _.htmlTemplate =
+    '<span class="mq-non-leaf">' +
+    '<span class="mq-phase-prefix">&#x2220;</span>' +
+    '<span class="mq-non-leaf mq-phase-stem">&0</span>' +
+    "</span>";
+  _.textTemplate = ["phase(", ")"];
+  _.reflow = function () {
+    var block = this.ends[R].jQ;
+    scale(
+      block.prev(),
+      1,
+      block.innerHeight() / +block.css("fontSize").slice(0, -2) - 0.1
+    );
+  };
+});
 
 var Hat = (LatexCmds.hat = P(MathCommand, function (_, super_) {
   _.ctrlSeq = "\\hat";
