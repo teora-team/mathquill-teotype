@@ -126,16 +126,15 @@
   }
 
   .mq-sans-serif {
-    font-family: sans-serif, Symbola, serif;
+    font-family: KaTeX_SansSerif, sans-serif, Symbola, serif;
   }
 
   .mq-monospace {
     font-family: KaTeX_Typewriter, monospace, Symbola, serif;
   }
 
-  .mq-mathbb .mq-original {
+  .mq-mathbb {
     font-family: KaTeX_AMS;
-    display: none;
   }
 
   .mq-boxed {
@@ -910,7 +909,7 @@
     padding: 0.1em;
   }
 
-  .mq-script {
+  .mq-caligraphic {
     // A selection of script-style fonts, in the hope that the browser has at least one
     // Better would be to include a script font with MathQuill (e.g., use what MathJax uses)
     font-family: KaTeX_Caligraphic, URW Chancery L, Apple Chancery,
@@ -919,6 +918,9 @@
   }
   .mq-fraktur {
     font-family: KaTeX_Fraktur;
+  }
+  .mq-script {
+    font-family: KaTeX_Script;
   }
 
   // @supports hack for Firefox ≥ 30

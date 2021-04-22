@@ -192,14 +192,13 @@
   font-style: normal;
 }
 .mq-math-mode .mq-sans-serif {
-  font-family: sans-serif, Symbola, serif;
+  font-family: KaTeX_SansSerif, sans-serif, Symbola, serif;
 }
 .mq-math-mode .mq-monospace {
   font-family: KaTeX_Typewriter, monospace, Symbola, serif;
 }
-.mq-math-mode .mq-mathbb .mq-original {
+.mq-math-mode .mq-mathbb {
   font-family: KaTeX_AMS;
-  display: none;
 }
 .mq-math-mode .mq-boxed {
   border: 2px solid black;
@@ -841,13 +840,16 @@
   width: 100%;
   padding: 0.1em;
 }
-.mq-math-mode .mq-script {
+.mq-math-mode .mq-caligraphic {
   font-family: KaTeX_Caligraphic, URW Chancery L, Apple Chancery,
       Snell Roundhand, Bradley Hand, Brush Script MT, Brush Script Std,
       Comic Sans MS, Comic Sans, cursive;
 }
 .mq-math-mode .mq-fraktur {
   font-family: KaTeX_Fraktur;
+}
+.mq-math-mode .mq-script {
+  font-family: KaTeX_Script;
 }
 @supports (-moz-appearance: meterbar) and
     (background-blend-mode: difference, normal) {

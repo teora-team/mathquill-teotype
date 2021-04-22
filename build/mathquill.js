@@ -4499,11 +4499,22 @@ LatexCmds.cal = LatexCmds.mathcal = bind(
   Style,
   "\\mathcal",
   "span",
-  'class="mq-script mq-font"'
+  'class="mq-caligraphic mq-font"'
 );
 LatexCmds.mathrm = bind(Style, "\\mathrm", "span", 'class="mq-roman mq-font"');
 LatexCmds.mathit = bind(Style, "\\mathit", "i", 'class="mq-font"');
-LatexCmds.mathfrak = bind(Style, "\\mathfrak", "span", 'class="mq-fraktur"');
+LatexCmds.mathfrak = bind(
+  Style,
+  "\\mathfrak",
+  "span",
+  'class="mq-fraktur mq-font"'
+);
+LatexCmds.mathscr = bind(
+  Style,
+  "\\mathscr",
+  "span",
+  'class="mq-script mq-font"'
+);
 LatexCmds.mathbf = bind(Style, "\\mathbf", "b", 'class="mq-font"');
 LatexCmds.mathsf = bind(
   Style,
@@ -6073,6 +6084,20 @@ var Fraction = (LatexCmds.frac = LatexCmds.dfrac = LatexCmds.cfrac = LatexCmds.f
     };
   }
 ));
+//\xarrow[b]{a}
+var Xarrow = (LatexCmds.xarrow = P(MathCommand, function (_, super_) {
+  _.htmlTemplate =
+    '<span class="mq-fraction mq-non-leaf">' +
+    '<span class="mq-numerator">&0</span>' +
+    '<span class="mq-denominator">&1</span>' +
+    '<span style="display:inline-block;width:0">&#8203;</span>' +
+    "</span>";
+  _.textTemplate = ["xarrow[", "](", ")"];
+  _.finalizeTree = function () {
+    this.upInto = this.ends[R].upOutOf = this.ends[L];
+    this.downInto = this.ends[L].downOutOf = this.ends[R];
+  };
+}));
 
 var LiveFraction = (LatexCmds.over = CharCmds["/"] = P(
   Fraction,
@@ -6736,7 +6761,6 @@ var Matrix = (Environments.matrix = P(Environment, function (_, super_) {
 
   // Create default 4-cell matrix
   _.createBlocks = function () {
-    console.log(this.ctrlSeq);
     if (
       this.ctrlSeq == "matrix" ||
       this.ctrlSeq == "pmatrix" ||
@@ -6753,7 +6777,7 @@ var Matrix = (Environments.matrix = P(Environment, function (_, super_) {
         MatrixCell(1, this),
       ];
     } else if (this.ctrlSeq == "gathered" || this.ctrlSeq == "aligned") {
-      this.blocks = [MatrixCell(0, this)];
+      this.blocks = [MatrixCell(0, this, MatrixCell(1, this))];
     } else if (this.ctrlSeq == "cases" || this.ctrlSeq == "rcases") {
       this.blocks = [MatrixCell(0, this), MatrixCell(1, this)];
     }
@@ -6776,7 +6800,7 @@ var Matrix = (Environments.matrix = P(Environment, function (_, super_) {
           .then(
             string(delimiters.column)
               .or(string(delimiters.row))
-              .or(string("\\hline"))
+              .or(string("\\hline "))
               .or(latexMathParser.block)
           )
           .many()
